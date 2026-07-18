@@ -21,32 +21,40 @@ export function createEnv<
 		skipValidation,
 		emptyStringAsUndefined,
 	} = opts;
+
 	const isServer = typeof window === "undefined";
-	const schema = z.object({ ...client, ...server });
+	const schema = z.object({ ...client, ...(isServer ? server : {}) });
 
-	if (skipValidation) return runtimeEnv as z.infer<typeof schema>;
-
-	const input = emptyStringAsUndefined
-		? Object.fromEntries(
-				Object.entries(runtimeEnv).map(([k, v]) => [
-					k,
-					v === "" ? undefined : v,
-				]),
-			)
-		: runtimeEnv;
-
-	const parsed = schema.safeParse(input);
-	if (!parsed.success) {
-		console.error(
-			"❌ Invalid environment variables:",
-			JSON.stringify(z.treeifyError(parsed.error), null, 2),
-		);
-		throw new Error(
-			"Invalid environment variables, check console for details.",
-		);
+	if (skipValidation) {
+		if (isServer) return runtimeEnv as z.infer<typeof schema>;
 	}
 
-	return new Proxy(parsed.data, {
+	let data: Record<string, unknown> = runtimeEnv;
+
+	if (!skipValidation) {
+		const input = emptyStringAsUndefined
+			? Object.fromEntries(
+					Object.entries(runtimeEnv).map(([k, v]) => [
+						k,
+						v === "" ? undefined : v,
+					]),
+				)
+			: runtimeEnv;
+
+		const parsed = schema.safeParse(input);
+		if (!parsed.success) {
+			console.error(
+				"❌ Invalid environment variables:\n",
+				JSON.stringify(z.treeifyError(parsed.error), null, 2),
+			);
+			throw new Error(
+				"Invalid environment variables, check console for details.",
+			);
+		}
+		data = parsed.data;
+	}
+
+	return new Proxy(data, {
 		get(target, prop) {
 			if (
 				typeof prop === "string" &&
