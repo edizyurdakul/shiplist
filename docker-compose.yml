@@ -6,12 +6,12 @@ services:
     restart: unless-stopped
 
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
 
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: shiplist
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+      POSTGRES_DB: ${POSTGRES_DB:-shiplist}
 
     volumes:
       - postgres_data:/var/lib/postgresql/data
