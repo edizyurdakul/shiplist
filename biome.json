@@ -16,6 +16,11 @@
 		"enabled": true,
 		"rules": {
 			"preset": "recommended"
+		},
+		"domains": {
+			"next": "recommended",
+			"react": "recommended",
+			"drizzle": "recommended"
 		}
 	},
 	"javascript": {
