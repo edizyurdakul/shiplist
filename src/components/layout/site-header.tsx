@@ -12,8 +12,8 @@ export async function SiteHeader() {
 	});
 
 	return (
-		<header className="sticky top-0 z-40 backdrop-blur-xl border-b">
-			<nav className="max-w-7xl mx-auto h-16 flex items-center">
+		<header className="sticky top-0 z-40 backdrop-blur-xl border-b ">
+			<nav className="max-w-7xl mx-auto h-16 flex items-center px-6">
 				<ul className="flex items-center w-full">
 					<li className="flex-1">
 						<Link href="/" className="flex gap-2 items-center">
@@ -24,12 +24,6 @@ export async function SiteHeader() {
 					<li className="flex gap-4 items-center">
 						<ul className="flex">
 							<li>
-								{/* <Link
-									href={"#features"}
-									className="h-8 text-muted-foreground hover:text-foreground px-4 rounded-full hover:bg-muted transition-all flex items-center justify-center"
-								>
-									Features
-								</Link> */}
 								<Button
 									render={<Link href="#features" />}
 									nativeButton={false}
@@ -39,12 +33,6 @@ export async function SiteHeader() {
 								</Button>
 							</li>
 							<li>
-								{/* <Link
-									href={"#pricing"}
-									className="h-8 text-muted-foreground hover:text-foreground px-4 rounded-full hover:bg-muted transition-all flex items-center justify-center"
-								>
-									Pricing
-								</Link> */}
 								<Button
 									render={<Link href="#pricing" />}
 									nativeButton={false}
@@ -54,12 +42,6 @@ export async function SiteHeader() {
 								</Button>
 							</li>
 							<li>
-								{/* <Link
-									href={"#"}
-									className="h-8 text-muted-foreground hover:text-foreground px-4 rounded-full hover:bg-muted transition-all flex items-center justify-center"
-								>
-									Docs
-								</Link> */}
 								<Button
 									render={<Link href="/docs" />}
 									nativeButton={false}
@@ -68,21 +50,6 @@ export async function SiteHeader() {
 									Docs
 								</Button>
 							</li>
-							{/* <li>
-								<Link
-									href={"#"}
-									className="h-8 text-muted-foreground hover:text-foreground px-4 rounded-full hover:bg-muted transition-all flex items-center justify-center"
-								>
-									Pricing
-								</Link>
-								<Button
-									render={<Link href="/api" />}
-									nativeButton={false}
-									variant={"nav"}
-								>
-									Api
-								</Button>
-							</li> */}
 						</ul>
 						<Separator orientation="vertical" className="w-px h-8" />
 						<ul className="flex gap-1">

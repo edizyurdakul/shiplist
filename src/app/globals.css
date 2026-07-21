@@ -131,6 +131,22 @@
 	--tracking-widest: calc(var(--tracking-normal) + 0.1em);
 }
 
+.bg-grid-dark {
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+	background-size: 44px 44px;
+	background-position: -1px -1px;
+}
+
+.bg-radial-glow {
+	background: radial-gradient(
+		ellipse 60% 40% at 50% 0%,
+		rgba(255, 255, 255, 0.22),
+		transparent 70%
+	);
+}
+
 @layer base {
 	* {
 		@apply border-border outline-ring/50;
