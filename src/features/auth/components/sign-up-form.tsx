@@ -1,3 +1,8 @@
+"use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
+import { type SubmitHandler, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -14,12 +19,25 @@ import {
 	FieldSeparator,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { type SignUpInput, signUpSchema } from "@/features/auth/validations";
+import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 
 export function SignUpForm({
 	className,
 	...props
 }: React.ComponentProps<"div">) {
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<SignUpInput>({ resolver: zodResolver(signUpSchema) });
+
+	const onSubmit: SubmitHandler<SignUpInput> = (data) =>
+		authClient.signUp.email({
+			...data,
+		});
+
 	return (
 		<div className={cn("flex flex-col gap-6", className)} {...props}>
 			<Card>
@@ -30,7 +48,7 @@ export function SignUpForm({
 					</CardDescription>
 				</CardHeader>
 				<CardContent>
-					<form>
+					<form onSubmit={handleSubmit(onSubmit)}>
 						<FieldGroup>
 							<Field>
 								<Button variant="outline" type="button">
@@ -59,7 +77,17 @@ export function SignUpForm({
 							</FieldSeparator>
 							<Field>
 								<FieldLabel htmlFor="email">Name</FieldLabel>
-								<Input id="name" type="text" placeholder="Name" required />
+								<Input
+									id="name"
+									type="text"
+									placeholder="Name"
+									{...register("name")}
+								/>
+								{errors.name && (
+									<FieldDescription className="text-destructive">
+										{errors.name.message}
+									</FieldDescription>
+								)}
 							</Field>
 							<Field>
 								<FieldLabel htmlFor="email">Email</FieldLabel>
@@ -67,23 +95,44 @@ export function SignUpForm({
 									id="email"
 									type="email"
 									placeholder="email@example.com"
-									required
+									{...register("email")}
 								/>
+								{errors.email && (
+									<FieldDescription className="text-destructive">
+										{errors.email.message}
+									</FieldDescription>
+								)}
 							</Field>
 							<Field>
 								<FieldLabel htmlFor="password">Password</FieldLabel>
-
-								<Input id="password" type="password" required />
+								<Input
+									id="password"
+									type="password"
+									{...register("password")}
+								/>
+								{errors.password && (
+									<FieldDescription className="text-destructive">
+										{errors.password.message}
+									</FieldDescription>
+								)}
 							</Field>
 							<Field>
 								<FieldLabel htmlFor="password">Confirm Password</FieldLabel>
-
-								<Input id="password" type="password" required />
+								<Input
+									id="password"
+									type="password"
+									{...register("confirmPassword")}
+								/>
+								{errors.confirmPassword && (
+									<FieldDescription className="text-destructive">
+										{errors.confirmPassword.message}
+									</FieldDescription>
+								)}
 							</Field>
 							<Field>
 								<Button type="submit">Create Account</Button>
 								<FieldDescription className="text-center">
-									Already have an account? <a href="/sign-in">Sign in</a>
+									Already have an account? <Link href="/sign-in">Sign in</Link>
 								</FieldDescription>
 							</Field>
 						</FieldGroup>
@@ -92,8 +141,8 @@ export function SignUpForm({
 			</Card>
 			<FieldDescription className="px-6 text-center">
 				By creating an account, you agree to our{" "}
-				<a href="/terms-of-service">Terms of Service</a> and{" "}
-				<a href="/privacy-policy">Privacy Policy</a>.
+				<Link href="/terms-of-service">Terms of Service</Link> and{" "}
+				<Link href="/privacy-policy">Privacy Policy</Link>.
 			</FieldDescription>
 		</div>
 	);

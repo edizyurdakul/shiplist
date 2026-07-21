@@ -1,3 +1,8 @@
+"use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
+import { type SubmitHandler, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -14,12 +19,26 @@ import {
 	FieldSeparator,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { type SignInInput, signInSchema } from "@/features/auth/validations";
+import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 
 export function SignInForm({
 	className,
 	...props
 }: React.ComponentProps<"div">) {
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<SignInInput>({ resolver: zodResolver(signInSchema) });
+
+	const onSubmit: SubmitHandler<SignInInput> = (data) =>
+		authClient.signIn.email({
+			...data,
+			callbackURL: "/w",
+		});
+
 	return (
 		<div className={cn("flex flex-col gap-6", className)} {...props}>
 			<Card>
@@ -30,7 +49,7 @@ export function SignInForm({
 					</CardDescription>
 				</CardHeader>
 				<CardContent>
-					<form>
+					<form onSubmit={handleSubmit(onSubmit)}>
 						<FieldGroup>
 							<Field>
 								<Button variant="outline" type="button">
@@ -63,25 +82,40 @@ export function SignInForm({
 									id="email"
 									type="email"
 									placeholder="email@example.com"
-									required
+									{...register("email")}
 								/>
+								{errors.email && (
+									<FieldDescription className="text-destructive">
+										{errors.email.message}
+									</FieldDescription>
+								)}
 							</Field>
 							<Field>
 								<div className="flex items-center">
 									<FieldLabel htmlFor="password">Password</FieldLabel>
-									<a
+									<Link
 										href="/forgot-password"
 										className="ml-auto text-sm underline-offset-4 hover:underline"
 									>
 										Forgot your password?
-									</a>
+									</Link>
 								</div>
-								<Input id="password" type="password" required />
+								<Input
+									id="password"
+									type="password"
+									{...register("password")}
+								/>
+								{errors.password && (
+									<FieldDescription className="text-destructive">
+										{errors.password.message}
+									</FieldDescription>
+								)}
 							</Field>
 							<Field>
 								<Button type="submit">Sign in</Button>
 								<FieldDescription className="text-center">
-									Don&apos;t have an account? <a href="/sign-up">Sign up</a>
+									Don&apos;t have an account?{" "}
+									<Link href="/sign-up">Sign up</Link>
 								</FieldDescription>
 							</Field>
 						</FieldGroup>
@@ -90,8 +124,8 @@ export function SignInForm({
 			</Card>
 			<FieldDescription className="px-6 text-center">
 				By creating an account, you agree to our{" "}
-				<a href="/terms-of-service">Terms of Service</a> and{" "}
-				<a href="/privacy-policy">Privacy Policy</a>.
+				<Link href="/terms-of-service">Terms of Service</Link> and{" "}
+				<Link href="/privacy-policy">Privacy Policy</Link>.
 			</FieldDescription>
 		</div>
 	);
