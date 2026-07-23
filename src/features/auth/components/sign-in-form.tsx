@@ -64,7 +64,7 @@ export function SignInForm() {
 		<Card className="w-full max-w-sm border-0 bg-transparent shadow-none ring-0">
 			<CardHeader className="px-0">
 				<CardTitle className="text-2xl font-bold tracking-tight">
-					Sign in to Acme
+					Sign in to Shiplist
 				</CardTitle>
 				<CardDescription className="text-sm">
 					Welcome back. Enter your details to continue.

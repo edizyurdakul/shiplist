@@ -55,7 +55,7 @@ export function ResetPasswordForm() {
 			},
 			{
 				onSuccess: () => {
-					toast.success("Successfull password reset.");
+					toast.success("Successful password reset.");
 					router.push("/sign-in");
 				},
 				onError: (error) => {

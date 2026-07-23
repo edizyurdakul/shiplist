@@ -55,7 +55,7 @@ export function ForgotPasswordForm() {
 					Reset Your Password
 				</CardTitle>
 				<CardDescription className="text-sm">
-					Enter details below to send an reset password email.
+					Enter details below to send a reset password email.
 				</CardDescription>
 			</CardHeader>
 

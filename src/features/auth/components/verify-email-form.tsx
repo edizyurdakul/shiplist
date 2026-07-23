@@ -48,7 +48,7 @@ export function VerifyEmailForm() {
 		}
 	}
 
-	const disabled = sending || cooldown > 0;
+	const disabled = !email || sending || cooldown > 0;
 
 	return (
 		<Card className="w-full max-w-sm border-0 bg-transparent shadow-none ring-0">
@@ -64,7 +64,13 @@ export function VerifyEmailForm() {
 							Check your inbox.
 						</>
 					) : (
-						"Verification email sent, check your inbox."
+						<>
+							No email provided.{" "}
+							<Link href="/forgot-password" className="underline">
+								Recover your email
+							</Link>{" "}
+							or provide your email when signing up.
+						</>
 					)}
 				</CardDescription>
 			</CardHeader>
