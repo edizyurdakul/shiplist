@@ -37,7 +37,7 @@ export function HeroSection() {
 					style={{ animationDelay: "180ms" }}
 				>
 					<Button
-						render={<Link href="/w/shiplist/board" />}
+						render={<Link href="/sign-up" />}
 						nativeButton={false}
 						className={"rounded-full"}
 					>
@@ -45,7 +45,7 @@ export function HeroSection() {
 						<ArrowUpRight className="h-4 w-4" />
 					</Button>
 					<Button
-						render={<Link href="/sign-up" />}
+						render={<Link href="/w/shiplist/board" />}
 						nativeButton={false}
 						className={"rounded-full"}
 						variant={"ghost"}
