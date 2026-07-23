@@ -19,20 +19,20 @@ export const auth = betterAuth({
 		minPasswordLength: 8,
 		maxPasswordLength: 128,
 		autoSignIn: true,
-		sendResetPassword: async ({ user, url, token }, request) => {
+		sendResetPassword: async ({ user, url }) => {
 			void resend.emails.send({
 				from: env.EMAIL_FROM,
-				to: env.EMAIL_TO,
+				to: user.email,
 				subject: "Reset your password",
 				react: PasswordResetEmail({ resetUrl: url }),
 			});
 		},
 		resetPasswordTokenExpiresIn: 3600, // 1 hour
 		revokeSessionsOnPasswordReset: true,
-		onExistingUserSignUp: async ({ user }, request) => {
+		onExistingUserSignUp: async ({ user }) => {
 			void resend.emails.send({
 				from: env.EMAIL_FROM,
-				to: env.EMAIL_TO,
+				to: user.email,
 				subject: "Sign-up attempt with your email",
 				text: "Someone tried to create an account using your email address. If this was you, try signing in instead. If not, you can safely ignore this email.",
 			});
@@ -42,25 +42,13 @@ export const auth = betterAuth({
 		sendOnSignUp: true,
 		autoSignInAfterVerification: true,
 
-		sendVerificationEmail: async ({ user, url, token }, request) => {
+		sendVerificationEmail: async ({ user, url }) => {
 			void resend.emails.send({
 				from: env.EMAIL_FROM,
-				to: env.EMAIL_TO,
+				to: user.email,
 				subject: "Verify your email address",
 				react: VerificationEmail({ verificationUrl: url }),
 			});
-		},
-		socialProviders: {
-			google: {
-				clientId: "your-client-id",
-				clientSecret: "your-client-secret",
-				redirectURI: "https://example.com/api/auth/callback/google",
-			},
-			github: {
-				clientId: "your-client-id",
-				clientSecret: "your-client-secret",
-				redirectURI: "https://example.com/api/auth/callback/github",
-			},
 		},
 	},
 	plugins: [organization()],
