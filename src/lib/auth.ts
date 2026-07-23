@@ -20,22 +20,32 @@ export const auth = betterAuth({
 		maxPasswordLength: 128,
 		autoSignIn: true,
 		sendResetPassword: async ({ user, url }) => {
-			void resend.emails.send({
+			const { error } = await resend.emails.send({
 				from: env.EMAIL_FROM,
 				to: user.email,
 				subject: "Reset your password",
 				react: PasswordResetEmail({ resetUrl: url }),
 			});
+			if (error) {
+				throw new Error(
+					`Failed to send password reset email: ${error.message}`,
+				);
+			}
 		},
 		resetPasswordTokenExpiresIn: 3600, // 1 hour
 		revokeSessionsOnPasswordReset: true,
 		onExistingUserSignUp: async ({ user }) => {
-			void resend.emails.send({
+			const { error } = await resend.emails.send({
 				from: env.EMAIL_FROM,
 				to: user.email,
 				subject: "Sign-up attempt with your email",
 				text: "Someone tried to create an account using your email address. If this was you, try signing in instead. If not, you can safely ignore this email.",
 			});
+			if (error) {
+				throw new Error(
+					`Failed to send sign-up notification email: ${error.message}`,
+				);
+			}
 		},
 	},
 	emailVerification: {
