@@ -6,7 +6,7 @@ import * as schema from "@/lib/db/schema";
 import PasswordResetEmail from "../../emails/password-reset-email";
 import VerificationEmail from "../../emails/verification-email";
 import { env } from "./env";
-import { resend } from "./resend";
+import { getResend } from "./resend";
 
 export const auth = betterAuth({
 	database: drizzleAdapter(db, {
@@ -20,7 +20,7 @@ export const auth = betterAuth({
 		maxPasswordLength: 128,
 		autoSignIn: true,
 		sendResetPassword: async ({ user, url }) => {
-			const { error } = await resend.emails.send({
+			const { error } = await getResend().emails.send({
 				from: env.EMAIL_FROM,
 				to: user.email,
 				subject: "Reset your password",
@@ -35,7 +35,7 @@ export const auth = betterAuth({
 		resetPasswordTokenExpiresIn: 3600, // 1 hour
 		revokeSessionsOnPasswordReset: true,
 		onExistingUserSignUp: async ({ user }) => {
-			const { error } = await resend.emails.send({
+			const { error } = await getResend().emails.send({
 				from: env.EMAIL_FROM,
 				to: user.email,
 				subject: "Sign-up attempt with your email",
@@ -53,7 +53,7 @@ export const auth = betterAuth({
 		autoSignInAfterVerification: true,
 
 		sendVerificationEmail: async ({ user, url }) => {
-			void resend.emails.send({
+			void getResend().emails.send({
 				from: env.EMAIL_FROM,
 				to: user.email,
 				subject: "Verify your email address",
