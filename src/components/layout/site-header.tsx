@@ -1,4 +1,4 @@
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
 import Link from "next/link";
 import { SignOut } from "@/features/auth/actions";
 import { auth } from "@/lib/auth";
@@ -7,9 +7,15 @@ import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 
 export async function SiteHeader() {
-	const session = await auth.api.getSession({
-		headers: await headers(),
-	});
+	let session = null;
+	try {
+		session = await auth.api.getSession({
+			headers: await headers(),
+		});
+	} catch {
+		const cookieStore = await cookies();
+		cookieStore.delete("better-auth.session_token");
+	}
 
 	return (
 		<header className="sticky top-0 z-40 backdrop-blur-xl border-b ">
