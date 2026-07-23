@@ -3,7 +3,7 @@ import { ResetPasswordForm } from "@/features/auth/components/reset-password-for
 
 export default function ResetPasswordPage() {
 	return (
-		<Suspense>
+		<Suspense fallback={null}>
 			<ResetPasswordForm />
 		</Suspense>
 	);

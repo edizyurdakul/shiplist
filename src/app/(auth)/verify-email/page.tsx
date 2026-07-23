@@ -3,7 +3,7 @@ import { VerifyEmailForm } from "@/features/auth/components/verify-email-form";
 
 export default function VerifyEmailPage() {
 	return (
-		<Suspense>
+		<Suspense fallback={null}>
 			<VerifyEmailForm />
 		</Suspense>
 	);
