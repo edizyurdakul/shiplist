@@ -13,22 +13,19 @@ import {
 
 interface WelcomeEmailProps {
 	name: string;
-	actionUrl?: string;
+	actionUrl: string;
 }
 
-export function WelcomeEmail({
-	name,
-	actionUrl = "https://example.com/dashboard",
-}: WelcomeEmailProps) {
+export function WelcomeEmail({ name, actionUrl }: WelcomeEmailProps) {
 	return (
 		<Html lang="en">
 			<Head />
-			<Preview>Welcome to Acme - Let&apos;s get started!</Preview>
+			<Preview>Welcome to Shiplist - Let&apos;s get started!</Preview>
 
 			<Tailwind>
 				<Body className="bg-white font-sans">
 					<Container className="mx-auto py-12 px-4 max-w-xl">
-						<Text className="text-2xl font-bold text-black">Acme</Text>
+						<Text className="text-2xl font-bold text-black">Shiplist</Text>
 
 						<Heading className="text-2xl font-bold text-gray-900 mt-8">
 							Welcome aboard, {name}!
@@ -41,7 +38,7 @@ export function WelcomeEmail({
 
 						<Text className="text-base text-gray-700 leading-6">
 							Click the button below to access your dashboard and explore
-							everything Acme has to offer.
+							everything Shiplist has to offer.
 						</Text>
 
 						<Button
@@ -54,7 +51,7 @@ export function WelcomeEmail({
 						<Hr className="border-gray-200 my-8" />
 
 						<Text className="text-sm text-gray-500">
-							If you didn&apos;t create an account with Acme, you can safely
+							If you didn&apos;t create an account with Shiplist, you can safely
 							ignore this email.
 						</Text>
 					</Container>

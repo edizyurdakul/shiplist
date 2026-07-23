@@ -28,7 +28,7 @@ export function PasswordResetEmail({
 			<Tailwind>
 				<Body className="bg-white font-sans">
 					<Container className="mx-auto py-12 px-4 max-w-xl">
-						<Text className="text-2xl font-bold text-black">Acme</Text>
+						<Text className="text-2xl font-bold text-black">Shiplist</Text>
 
 						<Heading className="text-2xl font-bold text-gray-900 mt-8">
 							Reset your password
@@ -60,7 +60,7 @@ export function PasswordResetEmail({
 						<div className="bg-yellow-50 border border-solid border-yellow-200 rounded-md p-4 mt-6">
 							<Text className="text-sm text-yellow-800 m-0">
 								<strong>Security tip:</strong> Never share this link with
-								anyone. Acme will never ask for your password via email.
+								anyone. Shiplist will never ask for your password via email.
 							</Text>
 						</div>
 					</Container>

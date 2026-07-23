@@ -28,7 +28,7 @@ export function VerificationEmail({
 			<Tailwind>
 				<Body className="bg-white font-sans">
 					<Container className="mx-auto py-12 px-4 max-w-xl">
-						<Text className="text-2xl font-bold text-black">Acme</Text>
+						<Text className="text-2xl font-bold text-black">Shiplist</Text>
 
 						<Heading className="text-2xl font-bold text-gray-900 mt-8">
 							Verify your email
