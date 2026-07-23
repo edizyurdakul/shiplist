@@ -1,149 +1,173 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { RiGithubFill, RiGoogleFill } from "@remixicon/react";
+import { Loader2 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { type SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import {
 	Card,
 	CardContent,
 	CardDescription,
+	CardFooter,
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
 import {
 	Field,
-	FieldDescription,
+	FieldError,
 	FieldGroup,
 	FieldLabel,
-	FieldSeparator,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 import { type SignUpInput, signUpSchema } from "@/features/auth/validations";
 import { authClient } from "@/lib/auth-client";
-import { cn } from "@/lib/utils";
 
-export function SignUpForm({
-	className,
-	...props
-}: React.ComponentProps<"div">) {
+export function SignUpForm() {
+	const router = useRouter();
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isSubmitting },
 	} = useForm<SignUpInput>({ resolver: zodResolver(signUpSchema) });
 
-	const onSubmit: SubmitHandler<SignUpInput> = (data) =>
-		authClient.signUp.email({
-			...data,
+	const onSubmit: SubmitHandler<SignUpInput> = async (data) =>
+		await authClient.signUp.email(
+			{
+				...data,
+				callbackURL: "/",
+			},
+			{
+				onSuccess: () => {
+					// toast.success("Successfully created account, verify email.");
+					router.push(`/verify-email?email=${encodeURIComponent(data.email)}`);
+				},
+				onError: (error) => {
+					toast.error(error.error.message);
+				},
+			},
+		);
+
+	function handleSocial(provider: string) {
+		toast.info(`Continuing with ${provider}`, {
+			description: "Redirecting you to authenticate…",
 		});
+	}
 
 	return (
-		<div className={cn("flex flex-col gap-6", className)} {...props}>
-			<Card>
-				<CardHeader className="text-center">
-					<CardTitle className="text-xl">Create your account</CardTitle>
-					<CardDescription>
-						Sign up with your Apple or Google account
-					</CardDescription>
-				</CardHeader>
-				<CardContent>
-					<form onSubmit={handleSubmit(onSubmit)}>
-						<FieldGroup>
-							<Field>
-								<Button variant="outline" type="button">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-										<title>Apple Logo</title>
-										<path
-											d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"
-											fill="currentColor"
-										/>
-									</svg>
-									Sign up with Apple
-								</Button>
-								<Button variant="outline" type="button">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-										<title>Google Logo</title>
-										<path
-											d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"
-											fill="currentColor"
-										/>
-									</svg>
-									Sign up with Google
-								</Button>
-							</Field>
-							<FieldSeparator className="*:data-[slot=field-separator-content]:bg-card">
-								Or continue with
-							</FieldSeparator>
-							<Field>
-								<FieldLabel htmlFor="email">Name</FieldLabel>
-								<Input
-									id="name"
-									type="text"
-									placeholder="Name"
-									{...register("name")}
-								/>
-								{errors.name && (
-									<FieldDescription className="text-destructive">
-										{errors.name.message}
-									</FieldDescription>
-								)}
-							</Field>
-							<Field>
-								<FieldLabel htmlFor="email">Email</FieldLabel>
-								<Input
-									id="email"
-									type="email"
-									placeholder="email@example.com"
-									{...register("email")}
-								/>
-								{errors.email && (
-									<FieldDescription className="text-destructive">
-										{errors.email.message}
-									</FieldDescription>
-								)}
-							</Field>
-							<Field>
-								<FieldLabel htmlFor="password">Password</FieldLabel>
-								<Input
-									id="password"
-									type="password"
-									{...register("password")}
-								/>
-								{errors.password && (
-									<FieldDescription className="text-destructive">
-										{errors.password.message}
-									</FieldDescription>
-								)}
-							</Field>
-							<Field>
-								<FieldLabel htmlFor="password">Confirm Password</FieldLabel>
-								<Input
-									id="password"
-									type="password"
-									{...register("confirmPassword")}
-								/>
-								{errors.confirmPassword && (
-									<FieldDescription className="text-destructive">
-										{errors.confirmPassword.message}
-									</FieldDescription>
-								)}
-							</Field>
-							<Field>
-								<Button type="submit">Create Account</Button>
-								<FieldDescription className="text-center">
-									Already have an account? <Link href="/sign-in">Sign in</Link>
-								</FieldDescription>
-							</Field>
-						</FieldGroup>
-					</form>
-				</CardContent>
-			</Card>
-			<FieldDescription className="px-6 text-center">
-				By creating an account, you agree to our{" "}
-				<Link href="/terms-of-service">Terms of Service</Link> and{" "}
-				<Link href="/privacy-policy">Privacy Policy</Link>.
-			</FieldDescription>
-		</div>
+		<Card className="w-full max-w-sm border-0 bg-transparent shadow-none ring-0">
+			<CardHeader className="px-0">
+				<CardTitle className="text-2xl font-bold tracking-tight">
+					Create your account
+				</CardTitle>
+				<CardDescription className="text-sm">
+					Enter your details to get started.
+				</CardDescription>
+			</CardHeader>
+
+			<CardContent className="flex flex-col gap-6 px-0">
+				<form onSubmit={handleSubmit(onSubmit)} noValidate>
+					<FieldGroup>
+						<Field>
+							<FieldLabel htmlFor="name">Name</FieldLabel>
+							<Input
+								id="name"
+								type="text"
+								placeholder="Your name"
+								aria-invalid={!!errors.name}
+								{...register("name")}
+							/>
+							<FieldError>{errors.name?.message}</FieldError>
+						</Field>
+						<Field>
+							<FieldLabel htmlFor="email">Email</FieldLabel>
+							<Input
+								id="email"
+								type="email"
+								placeholder="you@example.com"
+								aria-invalid={!!errors.email}
+								{...register("email")}
+							/>
+							<FieldError>{errors.email?.message}</FieldError>
+						</Field>
+						<Field>
+							<FieldLabel htmlFor="password">Password</FieldLabel>
+							<Input
+								id="password"
+								type="password"
+								placeholder="••••••••"
+								aria-invalid={!!errors.password}
+								{...register("password")}
+							/>
+							<FieldError>{errors.password?.message}</FieldError>
+						</Field>
+						<Field>
+							<FieldLabel htmlFor="confirmPassword">
+								Confirm password
+							</FieldLabel>
+							<Input
+								id="confirmPassword"
+								type="password"
+								placeholder="••••••••"
+								aria-invalid={!!errors.confirmPassword}
+								{...register("confirmPassword")}
+							/>
+							<FieldError>{errors.confirmPassword?.message}</FieldError>
+						</Field>
+
+						<Button type="submit" className="w-full" disabled={isSubmitting}>
+							{isSubmitting ? (
+								<Loader2 className="animate-spin" />
+							) : (
+								"Create account"
+							)}
+						</Button>
+					</FieldGroup>
+				</form>
+
+				<div className="flex items-center gap-3 text-xs text-muted-foreground">
+					<Separator className="flex-1 h-px" />
+					Or
+					<Separator className="flex-1 h-px" />
+				</div>
+
+				<div className="flex flex-col gap-3 sm:flex-row">
+					<Button
+						type="button"
+						variant="outline"
+						className="flex-1"
+						onClick={() => handleSocial("Google")}
+					>
+						<RiGoogleFill data-icon="inline-start" />
+						Google
+					</Button>
+					<Button
+						type="button"
+						variant="outline"
+						className="flex-1"
+						onClick={() => handleSocial("GitHub")}
+					>
+						<RiGithubFill data-icon="inline-start" />
+						GitHub
+					</Button>
+				</div>
+			</CardContent>
+
+			<CardFooter className="justify-center px-0 text-sm text-muted-foreground bg-transparent">
+				Already have an account?{" "}
+				<Button
+					variant="link"
+					className="px-1"
+					render={<Link href="/sign-in" />}
+					nativeButton={false}
+				>
+					Sign in
+				</Button>
+			</CardFooter>
+		</Card>
 	);
 }
