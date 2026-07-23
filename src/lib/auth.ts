@@ -1,5 +1,6 @@
 import { drizzleAdapter } from "@better-auth/drizzle-adapter/relations-v2";
 import { betterAuth } from "better-auth/minimal";
+import { organization } from "better-auth/plugins";
 import { db } from "@/lib/db";
 import * as schema from "@/lib/db/schema";
 import PasswordResetEmail from "../../emails/password-reset-email";
@@ -15,7 +16,9 @@ export const auth = betterAuth({
 	emailAndPassword: {
 		enabled: true,
 		requireEmailVerification: true,
-
+		minPasswordLength: 8,
+		maxPasswordLength: 128,
+		autoSignIn: true,
 		sendResetPassword: async ({ user, url, token }, request) => {
 			void resend.emails.send({
 				from: env.EMAIL_FROM,
@@ -24,6 +27,8 @@ export const auth = betterAuth({
 				react: PasswordResetEmail({ resetUrl: url }),
 			});
 		},
+		resetPasswordTokenExpiresIn: 3600, // 1 hour
+		revokeSessionsOnPasswordReset: true,
 		onExistingUserSignUp: async ({ user }, request) => {
 			void resend.emails.send({
 				from: env.EMAIL_FROM,
@@ -45,5 +50,18 @@ export const auth = betterAuth({
 				react: VerificationEmail({ verificationUrl: url }),
 			});
 		},
+		socialProviders: {
+			google: {
+				clientId: "your-client-id",
+				clientSecret: "your-client-secret",
+				redirectURI: "https://example.com/api/auth/callback/google",
+			},
+			github: {
+				clientId: "your-client-id",
+				clientSecret: "your-client-secret",
+				redirectURI: "https://example.com/api/auth/callback/github",
+			},
+		},
 	},
+	plugins: [organization()],
 });
