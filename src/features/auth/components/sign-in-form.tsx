@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { RiGithubFill, RiGoogleFill } from "@remixicon/react";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -29,6 +30,7 @@ import { type SignInInput, signInSchema } from "@/features/auth/validations";
 import { authClient } from "@/lib/auth-client";
 
 export function SignInForm() {
+	const router = useRouter();
 	const [remember, setRemember] = useState(true);
 
 	const {
@@ -37,22 +39,52 @@ export function SignInForm() {
 		formState: { errors, isSubmitting },
 	} = useForm<SignInInput>({ resolver: zodResolver(signInSchema) });
 
-	const onSubmit: SubmitHandler<SignInInput> = async (data) =>
-		await authClient.signIn.email(
-			{
-				...data,
-				callbackURL: "/w",
-				rememberMe: remember,
-			},
-			{
-				onSuccess: () => {
-					//
+	const onSubmit: SubmitHandler<SignInInput> = async (data) => {
+		try {
+			await authClient.signIn.email(
+				{
+					...data,
+					rememberMe: remember,
 				},
-				onError: (error) => {
-					toast.error(error.error.message);
+				{
+					onSuccess: async () => {
+						const { data: session } = await authClient.getSession();
+						const activeOrgId = session?.session?.activeOrganizationId;
+
+						if (activeOrgId) {
+							const { data: org } =
+								await authClient.organization.getFullOrganization({
+									query: { organizationId: activeOrgId },
+								});
+							if (org) {
+								router.push(`/w/${org.slug}`);
+								return;
+							}
+						}
+
+						const { data: orgs } = await authClient.organization.list();
+						if (orgs && orgs.length > 0) {
+							await authClient.organization.setActive({
+								organizationId: orgs[0].id,
+							});
+							router.push(`/w/${orgs[0].slug}`);
+						} else {
+							router.push("/create-workspace");
+						}
+					},
+					onError: (error) => {
+						const msg = error.error.message;
+						const retry = error.error.retryAfter;
+						toast.error(msg, {
+							description: retry ? `Try again in ${retry} seconds.` : undefined,
+						});
+					},
 				},
-			},
-		);
+			);
+		} catch (_error) {
+			toast.error("Something went wrong. Please try again.");
+		}
+	};
 
 	function handleSocial(provider: string) {
 		toast.info(`Continuing with ${provider}`, {
@@ -91,7 +123,7 @@ export function SignInForm() {
 								<Button
 									variant="link"
 									className="h-auto px-0 text-xs"
-									render={<Link href="/forgot-password" />}
+									render={<Link href="/forget-password" />}
 									nativeButton={false}
 								>
 									Forgot password?

@@ -1,6 +1,7 @@
 import { cookies, headers } from "next/headers";
 import Link from "next/link";
 import { SignOut } from "@/features/auth/actions";
+import { getActiveOrganizationSlug } from "@/features/workspace/helpers";
 import { auth } from "@/lib/auth";
 import { ShiplistMark } from "../icons/shiplist-mark";
 import { Button } from "../ui/button";
@@ -16,6 +17,8 @@ export async function SiteHeader() {
 		const cookieStore = await cookies();
 		cookieStore.delete("better-auth.session_token");
 	}
+
+	const slug = await getActiveOrganizationSlug(session);
 
 	return (
 		<header className="sticky top-0 z-40 backdrop-blur-xl border-b ">
@@ -70,7 +73,11 @@ export async function SiteHeader() {
 									</li>
 									<li>
 										<Button
-											render={<Link href="/w" />}
+											render={
+												<Link
+													href={slug ? `/w/${slug}` : "/create-workspace"}
+												/>
+											}
 											nativeButton={false}
 											className={"rounded-full"}
 										>

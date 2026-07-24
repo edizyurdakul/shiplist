@@ -35,22 +35,33 @@ export function SignUpForm() {
 		formState: { errors, isSubmitting },
 	} = useForm<SignUpInput>({ resolver: zodResolver(signUpSchema) });
 
-	const onSubmit: SubmitHandler<SignUpInput> = async (data) =>
-		await authClient.signUp.email(
-			{
-				...data,
-				callbackURL: "/",
-			},
-			{
-				onSuccess: () => {
-					// toast.success("Successfully created account, verify email.");
-					router.push(`/verify-email?email=${encodeURIComponent(data.email)}`);
+	const onSubmit: SubmitHandler<SignUpInput> = async (data) => {
+		try {
+			await authClient.signUp.email(
+				{
+					...data,
+					callbackURL: "/create-workspace",
 				},
-				onError: (error) => {
-					toast.error(error.error.message);
+				{
+					onSuccess: () => {
+						toast.success("Successfully created account, verify email.");
+						router.push(
+							`/verify-email?email=${encodeURIComponent(data.email)}`,
+						);
+					},
+					onError: (error) => {
+						const msg = error.error.message;
+						const retry = error.error.retryAfter;
+						toast.error(msg, {
+							description: retry ? `Try again in ${retry} seconds.` : undefined,
+						});
+					},
 				},
-			},
-		);
+			);
+		} catch (_error) {
+			toast.error("Something went wrong. Please try again.");
+		}
+	};
 
 	function handleSocial(provider: string) {
 		toast.info(`Continuing with ${provider}`, {

@@ -48,21 +48,29 @@ export function ResetPasswordForm() {
 	const onSubmit: SubmitHandler<ResetPasswordInput> = async (data) => {
 		if (!token) return;
 
-		await authClient.resetPassword(
-			{
-				newPassword: data.password,
-				token,
-			},
-			{
-				onSuccess: () => {
-					toast.success("Successful password reset.");
-					router.push("/sign-in");
+		try {
+			await authClient.resetPassword(
+				{
+					newPassword: data.password,
+					token,
 				},
-				onError: (error) => {
-					toast.error(error.error.message);
+				{
+					onSuccess: () => {
+						toast.success("Successful password reset.");
+						router.push("/sign-in");
+					},
+					onError: (error) => {
+						const msg = error.error.message;
+						const retry = error.error.retryAfter;
+						toast.error(msg, {
+							description: retry ? `Try again in ${retry} seconds.` : undefined,
+						});
+					},
 				},
-			},
-		);
+			);
+		} catch (_error) {
+			toast.error("Something went wrong. Please try again.");
+		}
 	};
 
 	return (

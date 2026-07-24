@@ -33,18 +33,23 @@ export function VerifyEmailForm() {
 	async function handleResend() {
 		if (!email || sending || cooldown > 0) return;
 
-		setSending(true);
-		const { error } = await authClient.sendVerificationEmail({
-			email,
-			callbackURL: `${window.location.origin}/`,
-		});
-		setSending(false);
+		try {
+			setSending(true);
+			const { error } = await authClient.sendVerificationEmail({
+				email,
+				callbackURL: `${window.location.origin}/`,
+			});
+			setSending(false);
 
-		if (error) {
-			toast.error(error.message);
-		} else {
-			toast.success("Verification email sent.");
-			setCooldown(60);
+			if (error) {
+				toast.error(error.message);
+			} else {
+				toast.success("Verification email sent.");
+				setCooldown(60);
+			}
+		} catch (_error) {
+			setSending(false);
+			toast.error("Something went wrong. Please try again.");
 		}
 	}
 
