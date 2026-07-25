@@ -36,13 +36,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-<<<<<<< Updated upstream
-.agents
-docs
-skills-lock.json
-=======
 
 skills-lock.json
 .agents
 docs
->>>>>>> Stashed changes
+ui_project
+AGENTS.md
+CLAUDE.md
