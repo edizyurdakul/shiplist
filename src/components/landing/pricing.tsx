@@ -1,5 +1,6 @@
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import Link from "next/link";
 
 const PLANS = [
 	{
@@ -109,7 +110,7 @@ export function Pricing() {
 									</li>
 								))}
 							</ul>
-							<a
+							<Link
 								href="#"
 								className={buttonVariants({
 									variant: plan.primary ? "invert" : "outline",
@@ -117,7 +118,7 @@ export function Pricing() {
 								})}
 							>
 								{plan.cta}
-							</a>
+							</Link>
 						</Card>
 					))}
 				</div>

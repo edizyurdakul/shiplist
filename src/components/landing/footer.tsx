@@ -26,6 +26,7 @@ export function Footer() {
 								aria-hidden="true"
 							>
 								<svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+									<title>Shiplist Logo</title>
 									<path
 										d="M3 11.5 8 2l5 9.5-5-2.4-5 2.4Z"
 										fill="currentColor"
@@ -55,12 +56,12 @@ export function Footer() {
 								<ul className="mt-4 space-y-2.5">
 									{col.links.map((link) => (
 										<li key={link}>
-											<a
+											<Link
 												href="#"
 												className="text-[0.8125rem] text-muted-foreground transition-colors hover:text-foreground"
 											>
 												{link}
-											</a>
+											</Link>
 										</li>
 									))}
 								</ul>
@@ -84,12 +85,18 @@ export function Footer() {
 							/>
 							status
 						</span>
-						<a href="#" className="transition-colors hover:text-foreground">
+						<Link
+							href="/docs"
+							className="transition-colors hover:text-foreground"
+						>
 							docs
-						</a>
-						<a href="#" className="transition-colors hover:text-foreground">
+						</Link>
+						<Link
+							href="/security"
+							className="transition-colors hover:text-foreground"
+						>
 							security
-						</a>
+						</Link>
 					</div>
 				</div>
 			</div>

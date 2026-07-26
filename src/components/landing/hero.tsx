@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 import { type StatusKey, StatusLabel } from "./status";
 
 type Post = {
@@ -154,7 +155,7 @@ export function Hero() {
 				<div className="mx-auto max-w-[80rem] px-4 sm:px-6">
 					<div className="flex justify-end mb-8">
 						<Badge
-							render={<a href="#product" />}
+							render={<Link href="#product" />}
 							variant="outline"
 							className="h-auto rounded-full bg-[oklch(1_0_0_/_4%)] px-3.5 py-1.5 text-[0.75rem] [a]:hover:bg-[oklch(1_0_0_/_7%)] [a]:hover:border-[var(--border-strong)]"
 							aria-label="New: changelog digests"

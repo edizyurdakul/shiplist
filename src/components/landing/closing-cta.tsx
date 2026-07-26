@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function ClosingCta() {
 	return (
 		<section className="border-t border-border py-28">
@@ -20,18 +22,18 @@ export function ClosingCta() {
 						actually want.
 					</h3>
 					<div className="relative mt-8 flex items-center justify-center gap-5">
-						<a
-							href="#signup"
-							className="rounded-full bg-foreground px-5 py-2.5 text-[13.5px] font-medium text-background transition-all hover:brightness-95"
-						>
-							Start for free
-						</a>
-						<a
-							href="#demo"
-							className="text-[13.5px] text-muted-foreground transition-colors hover:text-foreground"
-						>
-							Book a demo →
-						</a>
+					<Link
+						href="/sign-up"
+						className="rounded-full bg-foreground px-5 py-2.5 text-[13.5px] font-medium text-background transition-all hover:brightness-95"
+					>
+						Start for free
+					</Link>
+					<Link
+						href="#demo"
+						className="text-[13.5px] text-muted-foreground transition-colors hover:text-foreground"
+					>
+						Book a demo →
+					</Link>
 					</div>
 				</div>
 			</div>
