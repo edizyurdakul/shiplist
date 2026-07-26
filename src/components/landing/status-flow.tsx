@@ -29,7 +29,7 @@ export function StatusFlow() {
 		<section className="border-t border-border py-20 md:py-28">
 			<div className="w-full max-w-[72rem] mx-auto px-6 grid gap-12 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-16">
 				<div>
-					<p className="font-mono text-2xs tracking-[0.08em] uppercase text-subtle">
+					<p className="font-mono text-xs tracking-[0.08em] uppercase text-subtle">
 						1.0 Status flow
 					</p>
 					<h2 className="mt-3 font-semibold tracking-[-0.035em] leading-[1.03] text-[1.75rem] sm:text-[2rem]">
@@ -78,7 +78,7 @@ export function StatusFlow() {
 								</div>
 							))}
 						</div>
-						<div className="mt-7 flex flex-wrap items-center justify-between gap-2 border-t border-border pt-4 text-2xs text-subtle">
+						<div className="mt-7 flex flex-wrap items-center justify-between gap-2 border-t border-border pt-4 text-xs text-subtle">
 							<span>181 posts in flight across the Shiplist workspace</span>
 							<span>updated live · websocket</span>
 						</div>

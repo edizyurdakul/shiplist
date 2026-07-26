@@ -43,7 +43,7 @@ export async function Header() {
 							/>
 						</svg>
 					</span>
-					<span className="text-base-15 font-semibold tracking-snug">
+					<span className="text-base font-semibold tracking-snug">
 						Shiplist
 					</span>
 				</Link>
@@ -53,7 +53,7 @@ export async function Header() {
 						<a
 							key={link.label}
 							href={link.href}
-							className="text-sm-13 text-muted-foreground transition-colors hover:text-foreground"
+							className="text-sm text-muted-foreground transition-colors hover:text-foreground"
 						>
 							{link.label}
 						</a>

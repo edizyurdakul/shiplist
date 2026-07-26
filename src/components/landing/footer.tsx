@@ -33,11 +33,11 @@ export function Footer() {
 									/>
 								</svg>
 							</span>
-							<span className="text-base-15 font-semibold tracking-snug">
+							<span className="text-base font-semibold tracking-snug">
 								Shiplist
 							</span>
 						</Link>
-						<p className="mt-4 max-w-xs text-sm-13 leading-relaxed text-muted-foreground">
+						<p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
 							A feedback board, a public roadmap, and a changelog in one
 							workspace. The one with the best execution.
 						</p>
@@ -46,7 +46,7 @@ export function Footer() {
 					<div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
 						{COLUMNS.map((col) => (
 							<div key={col.title}>
-								<p className="text-2xs font-medium tracking-label uppercase text-subtle">
+								<p className="text-xs font-medium tracking-label uppercase text-subtle">
 									{col.title}
 								</p>
 								<ul className="mt-4 space-y-2.5">
@@ -54,7 +54,7 @@ export function Footer() {
 										<li key={link}>
 											<Link
 												href="#"
-												className="text-sm-13 text-muted-foreground transition-colors hover:text-foreground"
+												className="text-sm text-muted-foreground transition-colors hover:text-foreground"
 											>
 												{link}
 											</Link>

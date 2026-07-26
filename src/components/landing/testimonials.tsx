@@ -28,8 +28,8 @@ const TESTIMONIALS = [
 export function Testimonials() {
 	return (
 		<section className="border-t border-border py-20 md:py-28">
-			<div className="w-full max-w-[72rem] mx-auto px-6">
-				<p className="font-mono text-2xs tracking-kicker uppercase text-subtle">
+			<div className="w-full max-w-6xl mx-auto px-6">
+				<p className="font-mono text-xs tracking-kicker uppercase text-subtle">
 					6.0 Teams
 				</p>
 				<h2 className="mt-3 max-w-2xl section-heading">
@@ -40,21 +40,21 @@ export function Testimonials() {
 					{TESTIMONIALS.map((t) => (
 						<div
 							key={t.name}
-							className="flex flex-col justify-between rounded-2xl border border-white/[0.06] p-6 transition-[border-color,box-shadow] duration-200 hover:border-white/[0.12]"
+							className="flex flex-col justify-between rounded-2xl border border-white/6 p-6 transition-[border-color,box-shadow] duration-200 hover:border-white/12"
 							style={{
 								background: t.gradient,
 								boxShadow:
 									"0 1px 0 0 oklch(1 0 0 / 4%) inset, 0 24px 60px -30px oklch(0 0 0 / 85%)",
 							}}
 						>
-							<p className="text-base-15 leading-relaxed text-foreground/90">
+							<p className="text-base leading-relaxed text-foreground/90">
 								"{t.quote}"
 							</p>
 							<div className="mt-8 flex items-center gap-3">
 								<div className="size-8 rounded-full bg-white/10" />
 								<div>
-									<p className="text-sm-13 font-medium">{t.name}</p>
-									<p className="text-2xs text-subtle">{t.role}</p>
+									<p className="text-sm font-medium">{t.name}</p>
+									<p className="text-xs text-subtle">{t.role}</p>
 								</div>
 							</div>
 						</div>

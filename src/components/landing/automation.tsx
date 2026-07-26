@@ -19,7 +19,7 @@ export function Automation() {
 			<div className="w-full max-w-6xl mx-auto px-6">
 				<div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
 					<div>
-						<p className="font-mono text-2xs tracking-[0.08em] uppercase text-subtle">
+						<p className="font-mono text-xs tracking-[0.08em] uppercase text-subtle">
 							4.0 Automation
 						</p>
 						<h2 className="mt-5 max-w-xl text-[1.75rem] sm:text-[2rem] font-semibold tracking-[-0.035em] leading-[1.03]">
@@ -43,8 +43,8 @@ export function Automation() {
 								strokeWidth={1.5}
 								aria-hidden="true"
 							/>
-							<p className="mt-8 text-sm-13 font-medium">{label}</p>
-							<p className="mt-1 text-2xs text-subtle">{sub}</p>
+							<p className="mt-8 text-sm font-medium">{label}</p>
+							<p className="mt-1 text-xs text-subtle">{sub}</p>
 						</Card>
 					))}
 				</div>
