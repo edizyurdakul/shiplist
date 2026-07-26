@@ -22,7 +22,7 @@ export const auth = betterAuth({
 		sendResetPassword: async ({ user, url }) => {
 			const { error } = await getResend().emails.send({
 				from: env.EMAIL_FROM,
-				to: env.EMAIL_TO,
+				to: [user.email],
 				subject: "Reset your password",
 				react: PasswordResetEmail({ resetUrl: url }),
 			});
@@ -37,7 +37,7 @@ export const auth = betterAuth({
 		onExistingUserSignUp: async ({ user }) => {
 			const { error } = await getResend().emails.send({
 				from: env.EMAIL_FROM,
-				to: env.EMAIL_TO,
+				to: [user.email],
 				subject: "Sign-up attempt with your email",
 				text: "Someone tried to create an account using your email address. If this was you, try signing in instead. If not, you can safely ignore this email.",
 			});
@@ -55,7 +55,7 @@ export const auth = betterAuth({
 		sendVerificationEmail: async ({ user, url }) => {
 			void getResend().emails.send({
 				from: env.EMAIL_FROM,
-				to: env.EMAIL_TO,
+				to: [user.email],
 				subject: "Verify your email address",
 				react: VerificationEmail({ verificationUrl: url }),
 			});

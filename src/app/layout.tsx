@@ -1,22 +1,32 @@
 import type { Metadata } from "next";
-import { Geist, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
-const fontSans = Geist({
+const inter = Inter({
 	subsets: ["latin"],
 	variable: "--font-sans",
+	display: "swap",
 });
 
 const fontMono = JetBrains_Mono({
 	subsets: ["latin"],
 	variable: "--font-mono",
+	display: "swap",
 });
 
 export const metadata: Metadata = {
-	title: "Shiplist",
+	metadataBase: new URL("https://shiplist.dev"),
+	title: "Shiplist — Collect feedback. Plan your roadmap. Ship what matters.",
 	description:
-		"Shiplist is a multi-tenant feedback platform for product teams — crisp boards, a public roadmap, and a changelog your users actually read.",
+		"A feedback board, public roadmap, and changelog in one workspace. Flat-rate, never per-user. Built for small software teams.",
+	openGraph: {
+		title: "Shiplist",
+		description:
+			"A feedback board, public roadmap, and changelog in one workspace. Flat-rate, never per-user.",
+		type: "website",
+	},
+	twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({
@@ -27,7 +37,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${fontSans.variable} ${fontMono.variable} antialiased dark font-sans`}
+				className={`${inter.variable} ${fontMono.variable} antialiased dark font-sans`}
 			>
 				<Toaster />
 				{children}
