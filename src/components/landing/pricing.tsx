@@ -10,7 +10,7 @@ const PLANS = [
 		blurb:
 			"One board, three people, fifty posts. Enough to run a single feedback loop end to end.",
 		features: ["1 workspace", "1 board", "3 members", "50 posts"],
-		cta: "Open the Acme board ↗",
+		cta: "Open the Shiplist board ↗",
 		primary: false,
 	},
 	{
@@ -46,17 +46,21 @@ export function Pricing() {
 	return (
 		<section id="pricing" className="border-t border-border py-20 md:py-28">
 			<div className="w-full max-w-[72rem] mx-auto px-6">
-				<div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
-					<h2 className="text-[1.75rem] sm:text-[2.25rem] font-semibold tracking-[-0.035em] leading-[1.03]">
-						One flat rate per workspace.
-						<br />
-						Never per user.
-					</h2>
-					<p className="text-[0.875rem] leading-relaxed text-muted-foreground">
-						A team of three pays the same as a team of thirty sitting at the
-						same tier. Add members, don't add dollars.
-					</p>
-				</div>
+				<p
+					className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase"
+					style={{ color: "var(--subtle)" }}
+				>
+					5.0 Pricing
+				</p>
+				<h2 className="mt-3 max-w-2xl text-[1.75rem] sm:text-[2.25rem] font-semibold tracking-[-0.035em] leading-[1.03]">
+					One flat rate per workspace.
+					<br />
+					Never per user.
+				</h2>
+				<p className="mt-4 max-w-xl text-[0.875rem] leading-relaxed text-muted-foreground">
+					A team of three pays the same as a team of thirty sitting at the same
+					tier. Add members, don't add dollars.
+				</p>
 
 				<div className="mt-12 grid gap-5 md:grid-cols-3">
 					{PLANS.map((plan) => (

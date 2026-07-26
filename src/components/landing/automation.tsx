@@ -20,10 +20,10 @@ export function Automation() {
 				<div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
 					<div>
 						<p
-							className="text-[0.6875rem] font-medium tracking-[0.16em] uppercase"
+							className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase"
 							style={{ color: "var(--subtle)" }}
 						>
-							⚡ Automation
+							4.0 Automation
 						</p>
 						<h2 className="mt-5 max-w-xl text-[1.75rem] sm:text-[2rem] font-semibold tracking-[-0.035em] leading-[1.03]">
 							The boring parts of running a feedback board, handled quietly.

@@ -325,7 +325,7 @@ function StepName({
 				id="workspace-name"
 				value={name}
 				onChange={(e) => setName(e.target.value)}
-				placeholder="Acme Design"
+				placeholder="Shiplist Design"
 				autoComplete="off"
 				className="mt-2 w-full rounded-lg border border-input bg-transparent px-3.5 py-2.5 text-[0.875rem] text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-foreground/35"
 			/>
@@ -351,7 +351,7 @@ function StepName({
 				id="workspace-slug"
 				value={slug}
 				onChange={(e) => setSlug(slugify(e.target.value))}
-				placeholder="acme-design"
+				placeholder="shiplist-design"
 				autoComplete="off"
 				spellCheck={false}
 				className="mt-2 w-full rounded-lg border border-input bg-transparent px-3.5 py-2.5 font-mono text-[0.8125rem] text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-foreground/35"

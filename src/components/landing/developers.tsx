@@ -30,10 +30,10 @@ export function Developers() {
 			<div className="w-full max-w-[72rem] mx-auto px-6 grid gap-12 lg:grid-cols-2 lg:gap-16">
 				<div>
 					<p
-						className="text-[0.6875rem] font-medium tracking-[0.16em] uppercase"
+						className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase"
 						style={{ color: "var(--subtle)" }}
 					>
-						For the people who wire it up
+						3.0 Developers
 					</p>
 					<h2 className="mt-5 text-[1.75rem] sm:text-[2rem] font-semibold tracking-[-0.035em] leading-[1.03]">
 						A REST API, webhooks, typed SDKs, and a widget you can embed.
@@ -88,7 +88,7 @@ export function Developers() {
   "title": "Drag a post between status columns",
   "status": "in_progress",
   "votes": 143,
-  "board": { "slug": "acme/web" },
+  "board": { "slug": "shiplist/web" },
   "linked": { "linear": "ENG-402", "github": 88 }
 }`}</code>
 						</pre>
@@ -97,7 +97,7 @@ export function Developers() {
 								className="font-mono text-[0.625rem]"
 								style={{ color: "var(--subtle)" }}
 							>
-								webhook fired: post.upvoted → acme/webhook
+								webhook fired: post.upvoted → shiplist/webhook
 							</p>
 						</div>
 					</Card>

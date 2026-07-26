@@ -9,6 +9,7 @@ import { LogoStrip } from "@/components/landing/logo-strip";
 import { Pricing } from "@/components/landing/pricing";
 import { StatusFlow } from "@/components/landing/status-flow";
 import { Surfaces } from "@/components/landing/surfaces";
+import { Testimonials } from "@/components/landing/testimonials";
 
 export const metadata = {
 	title: "Shiplist — Feedback board, public roadmap, changelog",
@@ -25,7 +26,7 @@ export const metadata = {
 
 export default function Home() {
 	return (
-		<div className="min-h-screen bg-background">
+		<div className="grain min-h-screen bg-background">
 			<Suspense fallback={<div className="h-13" />}>
 				<Header />
 			</Suspense>
@@ -37,6 +38,7 @@ export default function Home() {
 				<Developers />
 				<Automation />
 				<Pricing />
+				<Testimonials />
 				<ClosingCta />
 			</main>
 			<Footer />

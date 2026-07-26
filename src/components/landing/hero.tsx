@@ -22,7 +22,7 @@ const POSTS: Post[] = [
 		votes: 384,
 		title: "OAuth login for the public roadmap",
 		ticket: "#P-304",
-		board: "acme/web",
+		board: "shiplist/web",
 		tag: "#auth-roadmap",
 		author: "lena",
 		comments: 23,
@@ -33,7 +33,7 @@ const POSTS: Post[] = [
 		votes: 143,
 		title: "Drag a post between status columns",
 		ticket: "#P-211",
-		board: "acme/web",
+		board: "shiplist/web",
 		tag: "#roadmap-flow",
 		author: "marcus",
 		comments: 18,
@@ -44,7 +44,7 @@ const POSTS: Post[] = [
 		votes: 97,
 		title: "Link a changelog entry back to its source post",
 		ticket: "#P-276",
-		board: "acme/web",
+		board: "shiplist/web",
 		tag: "#changelog",
 		author: "priya",
 		comments: 9,
@@ -55,7 +55,7 @@ const POSTS: Post[] = [
 		votes: 61,
 		title: 'Webhook event for "post upvoted past 100"',
 		ticket: "#P-233",
-		board: "acme/web",
+		board: "shiplist/web",
 		tag: "#webhooks",
 		author: "devon",
 		comments: 14,
@@ -66,7 +66,7 @@ const POSTS: Post[] = [
 		votes: 44,
 		title: "Duplicate detection on new post submit",
 		ticket: "#P-227",
-		board: "acme/web",
+		board: "shiplist/web",
 		tag: "#automation",
 		author: "sofie",
 		comments: 6,
@@ -80,7 +80,7 @@ const SIDEBAR = [
 		group: "Workspace",
 		items: ["Feedback", "Roadmap", "Changelog", "Insights"],
 	},
-	{ group: "Boards", items: ["acme/web", "acme/mobile", "acme/api"] },
+	{ group: "Boards", items: ["shiplist/web", "shiplist/mobile", "shiplist/api"] },
 ];
 
 function VoteButton({ base }: { base: number }) {
@@ -125,7 +125,7 @@ export function Hero() {
 				aria-hidden="true"
 			/>
 
-			<div className="relative w-full max-w-[72rem] mx-auto px-6">
+			<div className="relative w-full max-w-[80rem] mx-auto px-6">
 				<h1 className="font-semibold tracking-[-0.035em] leading-[1.03] max-w-4xl text-[clamp(2.5rem,7.4vw,4.5rem)]">
 					The feedback system
 					<br className="hidden sm:block" /> for teams that ship
@@ -138,24 +138,13 @@ export function Hero() {
 						workspace — never per user.
 					</p>
 				</div>
-				<div className="flex justify-end">
-					<Badge
-						render={<a href="#product" />}
-						variant="outline"
-						className="h-auto rounded-full bg-[oklch(1_0_0_/_4%)] px-3.5 py-1.5 text-[0.75rem] [a]:hover:bg-[oklch(1_0_0_/_7%)] [a]:hover:border-[var(--border-strong)]"
-						aria-label="New: changelog digests"
-					>
-						<span className="font-medium text-foreground">New</span>
-						<span className="text-muted-foreground">Changelog digests</span>
-					</Badge>
-				</div>
 
 				{/*<div className="mt-9 flex flex-wrap items-center gap-3">
 					<a href="#pricing" className="btn btn-primary">
 						Start building
 					</a>
 					<a href="#product" className="btn btn-outline">
-						Open the Acme board <span aria-hidden="true">↗</span>
+						Open the Shiplist board <span aria-hidden="true">↗</span>
 					</a>
 				</div>*/}
 			</div>
@@ -163,6 +152,17 @@ export function Hero() {
 			{/* App-shell product frame */}
 			<div className="relative mt-16 md:mt-20">
 				<div className="mx-auto max-w-[80rem] px-4 sm:px-6">
+					<div className="flex justify-end mb-8">
+						<Badge
+							render={<a href="#product" />}
+							variant="outline"
+							className="h-auto rounded-full bg-[oklch(1_0_0_/_4%)] px-3.5 py-1.5 text-[0.75rem] [a]:hover:bg-[oklch(1_0_0_/_7%)] [a]:hover:border-[var(--border-strong)]"
+							aria-label="New: changelog digests"
+						>
+							<span className="font-medium text-foreground">New</span>
+							<span className="text-muted-foreground">Changelog digests</span>
+						</Badge>
+					</div>
 					<div
 						className="relative overflow-hidden rounded-[1.25rem] border border-[var(--border)] backdrop-blur-[18px]"
 						style={{
@@ -180,7 +180,7 @@ export function Hero() {
 										style={{ background: "var(--primary)" }}
 										aria-hidden="true"
 									/>
-									<span className="text-[0.8125rem] font-medium">Acme</span>
+									<span className="text-[0.8125rem] font-medium">Shiplist</span>
 									<span
 										className="ml-auto text-[0.625rem]"
 										style={{ color: "var(--subtle)" }}
@@ -221,7 +221,7 @@ export function Hero() {
 							<div className="p-4 sm:p-5">
 								<div className="flex items-center justify-between gap-3 pb-3">
 									<p className="text-[0.8125rem] font-medium">
-										<span style={{ color: "var(--subtle)" }}>acme/web</span> /
+										<span style={{ color: "var(--subtle)" }}>shiplist/web</span> /
 										Feedback
 									</p>
 									<div

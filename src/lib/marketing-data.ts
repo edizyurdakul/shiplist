@@ -47,7 +47,7 @@ export const POSTS: Post[] = [
 	{
 		id: "P-204",
 		title: "OAuth login for the public roadmap",
-		board: "acme/web",
+		board: "shiplist/web",
 		status: "shipped",
 		votes: 184,
 		comments: 23,
@@ -57,7 +57,7 @@ export const POSTS: Post[] = [
 	{
 		id: "P-211",
 		title: "Drag a post between status columns",
-		board: "acme/web",
+		board: "shiplist/web",
 		status: "progress",
 		votes: 142,
 		comments: 18,
@@ -67,7 +67,7 @@ export const POSTS: Post[] = [
 	{
 		id: "P-218",
 		title: "Link a changelog entry back to its source post",
-		board: "acme/api",
+		board: "shiplist/api",
 		status: "planned",
 		votes: 97,
 		comments: 9,
@@ -77,7 +77,7 @@ export const POSTS: Post[] = [
 	{
 		id: "P-223",
 		title: 'Webhook event for "post upvoted past 100"',
-		board: "acme/api",
+		board: "shiplist/api",
 		status: "review",
 		votes: 61,
 		comments: 14,
@@ -87,7 +87,7 @@ export const POSTS: Post[] = [
 	{
 		id: "P-227",
 		title: "Duplicate detection on new post submit",
-		board: "acme/web",
+		board: "shiplist/web",
 		status: "planned",
 		votes: 54,
 		comments: 6,
@@ -150,7 +150,7 @@ export const PRICING = [
 		cadence: "forever",
 		line: "One board, three people, fifty posts. Enough to run a single feedback loop end to end.",
 		specs: ["1 workspace", "1 board", "3 members", "50 posts"],
-		cta: "Open the Acme board",
+		cta: "Open the Shiplist board",
 		featured: false,
 	},
 	{

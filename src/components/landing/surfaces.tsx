@@ -64,7 +64,13 @@ export function Surfaces() {
 	return (
 		<section id="product" className="border-t border-border py-20 md:py-28">
 			<div className="w-full max-w-[72rem] mx-auto px-6">
-				<h2 className="font-semibold tracking-[-0.035em] leading-[1.03] max-w-2xl text-[1.75rem] sm:text-[2.25rem]">
+				<p
+					className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase"
+					style={{ color: "var(--subtle)" }}
+				>
+					2.0 Surfaces
+				</p>
+				<h2 className="mt-3 font-semibold tracking-[-0.035em] leading-[1.03] max-w-2xl text-[1.75rem] sm:text-[2.25rem]">
 					Three surfaces, one workspace. Each one is the real product, not a
 					mockup of one.
 				</h2>
@@ -90,7 +96,7 @@ export function Surfaces() {
 									className="flex items-center justify-between pb-2 text-[0.6875rem]"
 									style={{ color: "var(--subtle)" }}
 								>
-									<span>acme/web</span>
+									<span>shiplist/web</span>
 									<span>⌕ dark mode</span>
 								</div>
 								<ul className="space-y-1">
