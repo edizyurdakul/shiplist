@@ -108,7 +108,7 @@ function VoteButton({ base }: { base: number }) {
 			}
 		>
 			<span className="text-[0.5625rem] leading-none text-subtle">▲</span>
-			<span className="font-mono text-2xs leading-none">
+			<span className="font-mono text-xs leading-none">
 				{base + (voted ? 1 : 0)}
 			</span>
 		</button>
@@ -130,7 +130,7 @@ export function Hero() {
 				</h1>
 
 				<div className="mt-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-					<p className="max-w-lg text-base-15 leading-relaxed text-muted-foreground">
+					<p className="max-w-lg text-base leading-relaxed text-muted-foreground">
 						A feedback board, a public roadmap, and a changelog in one
 						workspace. Votes and status are the backbone. Flat-rate per
 						workspace — never per user.
@@ -177,13 +177,13 @@ export function Hero() {
 										className="size-4 rounded-[0.3rem] bg-primary"
 										aria-hidden="true"
 									/>
-									<span className="text-sm-13 font-medium">Shiplist</span>
+									<span className="text-sm font-medium">Shiplist</span>
 									<span className="ml-auto text-[0.625rem] text-subtle">⌄</span>
 								</div>
 								{SIDEBAR.map((section) => (
 									<div key={section.group ?? "root"} className="space-y-0.5">
 										{section.group ? (
-											<p className="px-1 pb-1.5 text-2xs font-medium tracking-label uppercase text-subtle">
+											<p className="px-1 pb-1.5 text-xs font-medium tracking-label uppercase text-subtle">
 												{section.group}
 											</p>
 										) : null}
@@ -209,10 +209,10 @@ export function Hero() {
 
 							<div className="p-4 sm:p-5">
 								<div className="flex items-center justify-between gap-3 pb-3">
-									<p className="text-sm-13 font-medium">
+									<p className="text-sm font-medium">
 										<span className="text-subtle">shiplist/web</span> / Feedback
 									</p>
-									<div className="flex items-center gap-3 text-2xs text-subtle">
+									<div className="flex items-center gap-3 text-xs text-subtle">
 										<span>⌕ filter</span>
 										<span>5 open</span>
 									</div>
@@ -227,17 +227,17 @@ export function Hero() {
 											<div className="min-w-0 flex-1">
 												<div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
 													<StatusLabel status={post.status} />
-													<span className="text-2xs text-subtle">
+													<span className="text-xs text-subtle">
 														{post.board}
 													</span>
-													<span className="font-mono text-2xs text-subtle">
+													<span className="font-mono text-xs text-subtle">
 														{post.ticket}
 													</span>
 												</div>
-												<p className="mt-1.5 truncate text-sm-13 font-medium">
+												<p className="mt-1.5 truncate text-sm font-medium">
 													{post.title}
 												</p>
-												<div className="mt-1.5 flex flex-wrap items-center gap-x-3 text-2xs text-subtle">
+												<div className="mt-1.5 flex flex-wrap items-center gap-x-3 text-xs text-subtle">
 													<span>▭ {post.comments}</span>
 													<span>by {post.author}</span>
 													<span>{post.tag}</span>
@@ -246,7 +246,7 @@ export function Hero() {
 										</li>
 									))}
 								</ul>
-								<div className="mt-3 flex items-center justify-between border-t border-border pt-3 text-2xs text-subtle">
+								<div className="mt-3 flex items-center justify-between border-t border-border pt-3 text-xs text-subtle">
 									<span>sorted by: top votes</span>
 									<span>open board →</span>
 								</div>

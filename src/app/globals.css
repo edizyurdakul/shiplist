@@ -49,6 +49,13 @@
 	--shadow-lg: var(--shadow-lg);
 	--shadow-xl: var(--shadow-xl);
 	--shadow-2xl: var(--shadow-2xl);
+
+	--text-xs: 0.6875rem;
+	--text-xs--line-height: 1.4;
+	--text-sm: 0.8125rem;
+	--text-sm--line-height: 1.5;
+	--text-base: 0.9375rem;
+	--text-base--line-height: 1.5;
 }
 
 :root {
@@ -145,23 +152,6 @@
 		font-family: var(--font-body), system-ui, sans-serif;
 		font-weight: 600;
 		letter-spacing: -0.026em;
-	}
-	.tracking-tightest {
-		letter-spacing: -0.034em;
-	}
-
-	/* Typography scale — extends Tailwind defaults */
-	.text-2xs {
-		font-size: 0.6875rem;
-		line-height: 1.4;
-	}
-	.text-sm-13 {
-		font-size: 0.8125rem;
-		line-height: 1.5;
-	}
-	.text-base-15 {
-		font-size: 0.9375rem;
-		line-height: 1.5;
 	}
 
 	/* Tracking */

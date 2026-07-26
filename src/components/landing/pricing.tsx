@@ -47,7 +47,7 @@ export function Pricing() {
 	return (
 		<section id="pricing" className="border-t border-border py-20 md:py-28">
 			<div className="w-full max-w-6xl mx-auto px-6">
-				<p className="font-mono text-2xs tracking-[0.08em] uppercase text-subtle">
+				<p className="font-mono text-xs tracking-[0.08em] uppercase text-subtle">
 					5.0 Pricing
 				</p>
 				<h2 className="mt-3 max-w-2xl text-[1.75rem] sm:text-[2.25rem] font-semibold tracking-[-0.035em] leading-[1.03]">
@@ -67,9 +67,9 @@ export function Pricing() {
 							className="p-6 transition-[border-color,box-shadow] duration-200 hover:border-[oklch(1_0_0/14%)] hover:shadow-[0px_12px_4px_-4px_#0000,0px_8px_4px_-4px_#00000005,0px_4px_4px_-4px_#0000000a,0px_0px_4px_-4px_#00000011]"
 						>
 							<div className="flex items-baseline justify-between gap-3">
-								<p className="text-sm-13 font-medium">{plan.name}</p>
+								<p className="text-sm font-medium">{plan.name}</p>
 								{plan.note && (
-									<p className="text-2xs font-medium tracking-[0.16em] uppercase text-subtle">
+									<p className="text-xs font-medium tracking-[0.16em] uppercase text-subtle">
 										{plan.note}
 									</p>
 								)}
@@ -80,13 +80,13 @@ export function Pricing() {
 								</span>
 								<span className="text-xs text-subtle">{plan.period}</span>
 							</p>
-							<p className="mt-4 text-sm-13 leading-relaxed text-muted-foreground">
+							<p className="mt-4 text-sm leading-relaxed text-muted-foreground">
 								{plan.blurb}
 							</p>
 							<ul className="mt-7 space-y-2.5">
 								{plan.features.map((f) => (
-									<li key={f} className="flex items-center gap-2.5 text-sm-13">
-										<span className="text-2xs text-subtle">✓</span>
+									<li key={f} className="flex items-center gap-2.5 text-sm">
+										<span className="text-xs text-subtle">✓</span>
 										{f}
 									</li>
 								))}
