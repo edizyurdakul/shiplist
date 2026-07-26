@@ -36,6 +36,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+
+skills-lock.json
 .agents
 docs
-skills-lock.json
+ui_project
+AGENTS.md
+CLAUDE.md
