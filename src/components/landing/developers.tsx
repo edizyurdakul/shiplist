@@ -29,10 +29,7 @@ export function Developers() {
 		<section id="developers" className="border-t border-border py-20 md:py-28">
 			<div className="w-full max-w-[72rem] mx-auto px-6 grid gap-12 lg:grid-cols-2 lg:gap-16">
 				<div>
-					<p
-						className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase"
-						style={{ color: "var(--subtle)" }}
-					>
+					<p className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase text-subtle">
 						3.0 Developers
 					</p>
 					<h2 className="mt-5 text-[1.75rem] sm:text-[2rem] font-semibold tracking-[-0.035em] leading-[1.03]">
@@ -47,9 +44,8 @@ export function Developers() {
 						{ITEMS.map(({ icon: Icon, label, desc }) => (
 							<li key={label} className="flex items-start gap-3.5">
 								<Icon
-									className="mt-0.5 size-4 flex-none"
+									className="mt-0.5 size-4 flex-none text-subtle"
 									strokeWidth={1.5}
-									style={{ color: "var(--subtle)" }}
 									aria-hidden="true"
 								/>
 								<p className="text-[0.8125rem] leading-relaxed">
@@ -64,16 +60,10 @@ export function Developers() {
 				<div>
 					<Card className="overflow-hidden">
 						<div className="flex items-center justify-between border-b border-border px-5 py-3">
-							<p
-								className="font-mono text-[0.6875rem]"
-								style={{ color: "var(--subtle)" }}
-							>
+							<p className="font-mono text-[0.6875rem] text-subtle">
 								POST /v1/posts/P-211/vote
 							</p>
-							<span
-								className="font-mono text-[0.625rem]"
-								style={{ color: "var(--subtle)" }}
-							>
+							<span className="font-mono text-[0.625rem] text-subtle">
 								copy
 							</span>
 						</div>
@@ -93,10 +83,7 @@ export function Developers() {
 }`}</code>
 						</pre>
 						<div className="border-t border-border px-5 py-3">
-							<p
-								className="font-mono text-[0.625rem]"
-								style={{ color: "var(--subtle)" }}
-							>
+							<p className="font-mono text-[0.625rem] text-subtle">
 								webhook fired: post.upvoted → shiplist/webhook
 							</p>
 						</div>

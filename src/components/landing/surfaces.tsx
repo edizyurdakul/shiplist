@@ -64,10 +64,7 @@ export function Surfaces() {
 	return (
 		<section id="product" className="border-t border-border py-20 md:py-28">
 			<div className="w-full max-w-[72rem] mx-auto px-6">
-				<p
-					className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase"
-					style={{ color: "var(--subtle)" }}
-				>
+				<p className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase text-subtle">
 					2.0 Surfaces
 				</p>
 				<h2 className="mt-3 font-semibold tracking-[-0.035em] leading-[1.03] max-w-2xl text-[1.75rem] sm:text-[2.25rem]">
@@ -78,10 +75,7 @@ export function Surfaces() {
 				<div className="mt-12 grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
 					<div className="grid gap-5">
 						<Card className="p-6 transition-[border-color,box-shadow] duration-200 hover:border-[oklch(1_0_0_/_14%)] hover:shadow-[0px_12px_4px_-4px_#0000,0px_8px_4px_-4px_#00000005,0px_4px_4px_-4px_#0000000a,0px_0px_4px_-4px_#00000011]">
-							<p
-								className="text-[0.6875rem] font-medium tracking-[0.16em] uppercase"
-								style={{ color: "var(--subtle)" }}
-							>
+							<p className="text-[0.6875rem] font-medium tracking-[0.16em] uppercase text-subtle">
 								Feedback board
 							</p>
 							<h3 className="mt-4 text-[1.0625rem] font-medium tracking-[-0.02em]">
@@ -92,10 +86,7 @@ export function Surfaces() {
 								comments collapse so a 40-comment thread doesn't bury the post.
 							</p>
 							<div className="mt-6 p-3 bg-[oklch(0.205_0_0_/_70%)] border border-[var(--border)] rounded-[var(--radius-md)]">
-								<div
-									className="flex items-center justify-between pb-2 text-[0.6875rem]"
-									style={{ color: "var(--subtle)" }}
-								>
+								<div className="flex items-center justify-between pb-2 text-[0.6875rem] text-subtle">
 									<span>shiplist/web</span>
 									<span>⌕ dark mode</span>
 								</div>
@@ -105,20 +96,14 @@ export function Surfaces() {
 											key={row.title}
 											className="flex items-center gap-3 rounded-md px-1.5 py-2 hover:bg-[oklch(1_0_0_/_3%)]"
 										>
-											<span
-												className="w-6 flex-none text-center font-mono text-[0.6875rem]"
-												style={{ color: "var(--subtle)" }}
-											>
+											<span className="w-6 flex-none text-center font-mono text-[0.6875rem] text-subtle">
 												{row.votes}
 											</span>
 											<div className="min-w-0 flex-1">
 												<p className="truncate text-[0.75rem]">{row.title}</p>
 												<div className="mt-1 flex items-center gap-2.5">
 													<StatusLabel status={row.status} />
-													<span
-														className="text-[0.625rem]"
-														style={{ color: "var(--subtle)" }}
-													>
+													<span className="text-[0.625rem] text-subtle">
 														▭ {row.comments}
 													</span>
 												</div>
@@ -130,10 +115,7 @@ export function Surfaces() {
 						</Card>
 
 						<Card className="p-6 transition-[border-color,box-shadow] duration-200 hover:border-[oklch(1_0_0_/_14%)] hover:shadow-[0px_12px_4px_-4px_#0000,0px_8px_4px_-4px_#00000005,0px_4px_4px_-4px_#0000000a,0px_0px_4px_-4px_#00000011]">
-							<p
-								className="text-[0.6875rem] font-medium tracking-[0.16em] uppercase"
-								style={{ color: "var(--subtle)" }}
-							>
+							<p className="text-[0.6875rem] font-medium tracking-[0.16em] uppercase text-subtle">
 								Changelog
 							</p>
 							<h3 className="mt-4 text-[1.0625rem] font-medium tracking-[-0.02em]">
@@ -166,10 +148,7 @@ export function Surfaces() {
 										</span>
 										<div className="min-w-0">
 											<p className="text-[0.75rem]">{entry.title}</p>
-											<p
-												className="mt-1 font-mono text-[0.625rem]"
-												style={{ color: "var(--subtle)" }}
-											>
+											<p className="mt-1 font-mono text-[0.625rem] text-subtle">
 												{entry.version} · {entry.date} · {entry.ticket}
 											</p>
 										</div>
@@ -180,10 +159,7 @@ export function Surfaces() {
 					</div>
 
 					<Card className="flex h-full flex-col p-6 transition-[border-color,box-shadow] duration-200 hover:border-[oklch(1_0_0_/_14%)] hover:shadow-[0px_12px_4px_-4px_#0000,0px_8px_4px_-4px_#00000005,0px_4px_4px_-4px_#0000000a,0px_0px_4px_-4px_#00000011]">
-						<p
-							className="text-[0.6875rem] font-medium tracking-[0.16em] uppercase"
-							style={{ color: "var(--subtle)" }}
-						>
+						<p className="text-[0.6875rem] font-medium tracking-[0.16em] uppercase text-subtle">
 							Public roadmap
 						</p>
 						<h3 className="mt-4 text-[1.0625rem] font-medium tracking-[-0.02em]">

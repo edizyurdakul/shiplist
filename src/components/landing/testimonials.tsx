@@ -29,10 +29,7 @@ export function Testimonials() {
 	return (
 		<section className="border-t border-border py-20 md:py-28">
 			<div className="w-full max-w-[72rem] mx-auto px-6">
-				<p
-					className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase"
-					style={{ color: "var(--subtle)" }}
-				>
+				<p className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase text-subtle">
 					6.0 Teams
 				</p>
 				<h2 className="mt-3 max-w-2xl text-[1.75rem] sm:text-[2.25rem] font-semibold tracking-[-0.035em] leading-[1.03]">
@@ -57,12 +54,7 @@ export function Testimonials() {
 								<div className="size-8 rounded-full bg-white/10" />
 								<div>
 									<p className="text-[0.8125rem] font-medium">{t.name}</p>
-									<p
-										className="text-[0.6875rem]"
-										style={{ color: "var(--subtle)" }}
-									>
-										{t.role}
-									</p>
+									<p className="text-[0.6875rem] text-subtle">{t.role}</p>
 								</div>
 							</div>
 						</div>

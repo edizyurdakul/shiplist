@@ -4,10 +4,7 @@ export function ClosingCta() {
 	return (
 		<section className="border-t border-border py-28">
 			<div className="mx-auto max-w-6xl px-6">
-				<div
-					className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-card/60 px-8 py-20 text-center"
-					style={{ boxShadow: "var(--shadow-panel)" }}
-				>
+				<div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-card/60 px-8 py-20 text-center shadow-panel">
 					<div
 						aria-hidden
 						className="pointer-events-none absolute inset-0"
@@ -22,18 +19,18 @@ export function ClosingCta() {
 						actually want.
 					</h3>
 					<div className="relative mt-8 flex items-center justify-center gap-5">
-					<Link
-						href="/sign-up"
-						className="rounded-full bg-foreground px-5 py-2.5 text-[13.5px] font-medium text-background transition-all hover:brightness-95"
-					>
-						Start for free
-					</Link>
-					<Link
-						href="#demo"
-						className="text-[13.5px] text-muted-foreground transition-colors hover:text-foreground"
-					>
-						Book a demo →
-					</Link>
+						<Link
+							href="/sign-up"
+							className="rounded-full bg-foreground px-5 py-2.5 text-[13.5px] font-medium text-background transition-all hover:brightness-95"
+						>
+							Start for free
+						</Link>
+						<Link
+							href="#demo"
+							className="text-[13.5px] text-muted-foreground transition-colors hover:text-foreground"
+						>
+							Book a demo →
+						</Link>
 					</div>
 				</div>
 			</div>

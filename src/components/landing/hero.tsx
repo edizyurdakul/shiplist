@@ -1,8 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
 import { type StatusKey, StatusLabel } from "./status";
 
 type Post = {
@@ -81,7 +81,10 @@ const SIDEBAR = [
 		group: "Workspace",
 		items: ["Feedback", "Roadmap", "Changelog", "Insights"],
 	},
-	{ group: "Boards", items: ["shiplist/web", "shiplist/mobile", "shiplist/api"] },
+	{
+		group: "Boards",
+		items: ["shiplist/web", "shiplist/mobile", "shiplist/api"],
+	},
 ];
 
 function VoteButton({ base }: { base: number }) {
@@ -104,12 +107,7 @@ function VoteButton({ base }: { base: number }) {
 					: undefined
 			}
 		>
-			<span
-				className="text-[0.5625rem] leading-none"
-				style={{ color: "var(--subtle)" }}
-			>
-				▲
-			</span>
+			<span className="text-[0.5625rem] leading-none text-subtle">▲</span>
 			<span className="font-mono text-[0.6875rem] leading-none">
 				{base + (voted ? 1 : 0)}
 			</span>
@@ -121,8 +119,7 @@ export function Hero() {
 	return (
 		<section className="relative overflow-hidden pt-20 pb-16 md:pt-32 md:pb-24">
 			<div
-				className="absolute pointer-events-none left-1/2 top-[-14rem] h-[42rem] w-[76rem] -translate-x-1/2 opacity-80 blur-[20px]"
-				style={{ background: "var(--glow-accent)" }}
+				className="absolute pointer-events-none left-1/2 top-[-14rem] h-[42rem] w-[76rem] -translate-x-1/2 opacity-80 blur-[20px] [background:var(--glow-accent)]"
 				aria-hidden="true"
 			/>
 
@@ -177,25 +174,16 @@ export function Hero() {
 							<aside className="hidden flex-col gap-5 border-r border-border p-4 md:flex">
 								<div className="flex items-center gap-2 px-1">
 									<span
-										className="size-4 rounded-[0.3rem]"
-										style={{ background: "var(--primary)" }}
+										className="size-4 rounded-[0.3rem] bg-primary"
 										aria-hidden="true"
 									/>
 									<span className="text-[0.8125rem] font-medium">Shiplist</span>
-									<span
-										className="ml-auto text-[0.625rem]"
-										style={{ color: "var(--subtle)" }}
-									>
-										⌄
-									</span>
+									<span className="ml-auto text-[0.625rem] text-subtle">⌄</span>
 								</div>
 								{SIDEBAR.map((section) => (
 									<div key={section.group ?? "root"} className="space-y-0.5">
 										{section.group ? (
-											<p
-												className="px-1 pb-1.5 text-[0.5625rem] font-medium tracking-[0.16em] uppercase"
-												style={{ color: "var(--subtle)" }}
-											>
+											<p className="px-1 pb-1.5 text-[0.5625rem] font-medium tracking-[0.16em] uppercase text-subtle">
 												{section.group}
 											</p>
 										) : null}
@@ -222,13 +210,9 @@ export function Hero() {
 							<div className="p-4 sm:p-5">
 								<div className="flex items-center justify-between gap-3 pb-3">
 									<p className="text-[0.8125rem] font-medium">
-										<span style={{ color: "var(--subtle)" }}>shiplist/web</span> /
-										Feedback
+										<span className="text-subtle">shiplist/web</span> / Feedback
 									</p>
-									<div
-										className="flex items-center gap-3 text-[0.6875rem]"
-										style={{ color: "var(--subtle)" }}
-									>
+									<div className="flex items-center gap-3 text-[0.6875rem] text-subtle">
 										<span>⌕ filter</span>
 										<span>5 open</span>
 									</div>
@@ -243,26 +227,17 @@ export function Hero() {
 											<div className="min-w-0 flex-1">
 												<div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
 													<StatusLabel status={post.status} />
-													<span
-														className="text-[0.6875rem]"
-														style={{ color: "var(--subtle)" }}
-													>
+													<span className="text-[0.6875rem] text-subtle">
 														{post.board}
 													</span>
-													<span
-														className="font-mono text-[0.6875rem]"
-														style={{ color: "var(--subtle)" }}
-													>
+													<span className="font-mono text-[0.6875rem] text-subtle">
 														{post.ticket}
 													</span>
 												</div>
 												<p className="mt-1.5 truncate text-[0.8125rem] font-medium">
 													{post.title}
 												</p>
-												<div
-													className="mt-1.5 flex flex-wrap items-center gap-x-3 text-[0.6875rem]"
-													style={{ color: "var(--subtle)" }}
-												>
+												<div className="mt-1.5 flex flex-wrap items-center gap-x-3 text-[0.6875rem] text-subtle">
 													<span>▭ {post.comments}</span>
 													<span>by {post.author}</span>
 													<span>{post.tag}</span>
@@ -271,10 +246,7 @@ export function Hero() {
 										</li>
 									))}
 								</ul>
-								<div
-									className="mt-3 flex items-center justify-between border-t border-border pt-3 text-[0.6875rem]"
-									style={{ color: "var(--subtle)" }}
-								>
+								<div className="mt-3 flex items-center justify-between border-t border-border pt-3 text-[0.6875rem] text-subtle">
 									<span>sorted by: top votes</span>
 									<span>open board →</span>
 								</div>
@@ -282,10 +254,7 @@ export function Hero() {
 						</div>
 					</div>
 				</div>
-				<p
-					className="mt-5 text-center text-[0.75rem]"
-					style={{ color: "var(--subtle)" }}
-				>
+				<p className="mt-5 text-center text-[0.75rem] text-subtle">
 					↑ try the vote button — it's the real interaction, not a screenshot.
 				</p>
 			</div>

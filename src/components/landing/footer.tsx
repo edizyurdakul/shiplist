@@ -21,8 +21,7 @@ export function Footer() {
 					<div>
 						<Link href="/" className="flex items-center gap-2">
 							<span
-								className="flex size-6 items-center justify-center rounded-md"
-								style={{ background: "var(--primary)" }}
+								className="flex size-6 items-center justify-center rounded-md bg-primary"
 								aria-hidden="true"
 							>
 								<svg width="13" height="13" viewBox="0 0 16 16" fill="none">
@@ -47,10 +46,7 @@ export function Footer() {
 					<div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
 						{COLUMNS.map((col) => (
 							<div key={col.title}>
-								<p
-									className="text-[0.6875rem] font-medium tracking-[0.16em] uppercase"
-									style={{ color: "var(--subtle)" }}
-								>
+								<p className="text-[0.6875rem] font-medium tracking-[0.16em] uppercase text-subtle">
 									{col.title}
 								</p>
 								<ul className="mt-4 space-y-2.5">
@@ -71,18 +67,12 @@ export function Footer() {
 				</div>
 
 				<div className="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6">
-					<p className="text-[0.75rem]" style={{ color: "var(--subtle)" }}>
+					<p className="text-[0.75rem] text-subtle">
 						© 2026 Shiplist · flat-rate, never per-user
 					</p>
-					<div
-						className="flex items-center gap-5 text-[0.75rem]"
-						style={{ color: "var(--subtle)" }}
-					>
+					<div className="flex items-center gap-5 text-[0.75rem] text-subtle">
 						<span className="inline-flex items-center gap-1.5">
-							<span
-								className="size-[0.3125rem] flex-none rounded-full"
-								style={{ background: "var(--status-shipped)" }}
-							/>
+							<span className="size-[0.3125rem] flex-none rounded-full bg-status-shipped" />
 							status
 						</span>
 						<Link

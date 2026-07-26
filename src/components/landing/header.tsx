@@ -26,8 +26,7 @@ export async function Header() {
 			<div className="w-full max-w-[72rem] mx-auto px-6 flex h-13 items-center justify-between">
 				<Link href="/" className="flex items-center gap-2">
 					<span
-						className="flex size-5 items-center justify-center rounded-[0.35rem]"
-						style={{ background: "var(--primary)" }}
+						className="flex size-5 items-center justify-center rounded-[0.35rem] bg-primary"
 						aria-hidden="true"
 					>
 						<svg

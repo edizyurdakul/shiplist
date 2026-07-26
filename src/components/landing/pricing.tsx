@@ -1,6 +1,6 @@
+import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import Link from "next/link";
 
 const PLANS = [
 	{
@@ -47,10 +47,7 @@ export function Pricing() {
 	return (
 		<section id="pricing" className="border-t border-border py-20 md:py-28">
 			<div className="w-full max-w-[72rem] mx-auto px-6">
-				<p
-					className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase"
-					style={{ color: "var(--subtle)" }}
-				>
+				<p className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase text-subtle">
 					5.0 Pricing
 				</p>
 				<h2 className="mt-3 max-w-2xl text-[1.75rem] sm:text-[2.25rem] font-semibold tracking-[-0.035em] leading-[1.03]">
@@ -72,10 +69,7 @@ export function Pricing() {
 							<div className="flex items-baseline justify-between gap-3">
 								<p className="text-[0.8125rem] font-medium">{plan.name}</p>
 								{plan.note && (
-									<p
-										className="text-[0.6875rem] font-medium tracking-[0.16em] uppercase"
-										style={{ color: "var(--subtle)" }}
-									>
+									<p className="text-[0.6875rem] font-medium tracking-[0.16em] uppercase text-subtle">
 										{plan.note}
 									</p>
 								)}
@@ -84,10 +78,7 @@ export function Pricing() {
 								<span className="text-4xl font-medium tracking-[-0.04em]">
 									{plan.price}
 								</span>
-								<span
-									className="text-[0.75rem]"
-									style={{ color: "var(--subtle)" }}
-								>
+								<span className="text-[0.75rem] text-subtle">
 									{plan.period}
 								</span>
 							</p>
@@ -100,12 +91,7 @@ export function Pricing() {
 										key={f}
 										className="flex items-center gap-2.5 text-[0.8125rem]"
 									>
-										<span
-											className="text-[0.6875rem]"
-											style={{ color: "var(--subtle)" }}
-										>
-											✓
-										</span>
+										<span className="text-[0.6875rem] text-subtle">✓</span>
 										{f}
 									</li>
 								))}
@@ -123,7 +109,7 @@ export function Pricing() {
 					))}
 				</div>
 
-				<p className="mt-8 text-[0.75rem]" style={{ color: "var(--subtle)" }}>
+				<p className="mt-8 text-[0.75rem] text-subtle">
 					all plans · REST API · webhooks · GitHub + Linear sync · embeddable
 					widget
 				</p>

@@ -19,10 +19,7 @@ export function Automation() {
 			<div className="w-full max-w-[72rem] mx-auto px-6">
 				<div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
 					<div>
-						<p
-							className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase"
-							style={{ color: "var(--subtle)" }}
-						>
+						<p className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase text-subtle">
 							4.0 Automation
 						</p>
 						<h2 className="mt-5 max-w-xl text-[1.75rem] sm:text-[2rem] font-semibold tracking-[-0.035em] leading-[1.03]">
@@ -42,18 +39,12 @@ export function Automation() {
 							className="h-full p-5 transition-[border-color,box-shadow] duration-200 hover:border-[oklch(1_0_0_/_14%)] hover:shadow-[0px_12px_4px_-4px_#0000,0px_8px_4px_-4px_#00000005,0px_4px_4px_-4px_#0000000a,0px_0px_4px_-4px_#00000011]"
 						>
 							<Icon
-								className="size-4"
+								className="size-4 text-subtle"
 								strokeWidth={1.5}
-								style={{ color: "var(--subtle)" }}
 								aria-hidden="true"
 							/>
 							<p className="mt-8 text-[0.8125rem] font-medium">{label}</p>
-							<p
-								className="mt-1 text-[0.6875rem]"
-								style={{ color: "var(--subtle)" }}
-							>
-								{sub}
-							</p>
+							<p className="mt-1 text-[0.6875rem] text-subtle">{sub}</p>
 						</Card>
 					))}
 				</div>

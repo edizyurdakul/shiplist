@@ -9,10 +9,7 @@ export function LogoStrip() {
 					"linear-gradient(90deg, transparent, oklch(1 0 0 / 12%) 20%, oklch(1 0 0 / 12%) 80%, transparent) 1",
 			}}
 		>
-			<p
-				className="text-center text-[0.6875rem] font-medium tracking-[0.16em] uppercase"
-				style={{ color: "var(--subtle)" }}
-			>
+			<p className="text-center text-[0.6875rem] font-medium tracking-[0.16em] uppercase text-subtle">
 				Trusted by teams that ship weekly
 			</p>
 			<div className="mt-7 flex items-center justify-center gap-10">
