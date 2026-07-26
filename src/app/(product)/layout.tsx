@@ -21,7 +21,7 @@ export default async function WLayout({
 								strokeWidth={3}
 							/>
 						</span>
-						<span className="text-[0.9375rem] font-semibold tracking-[-0.02em]">
+						<span className="text-base-15 font-semibold tracking-snug">
 							Shiplist
 						</span>
 					</Link>

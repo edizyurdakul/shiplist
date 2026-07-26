@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Automation } from "@/components/landing/automation";
 import { ClosingCta } from "@/components/landing/closing-cta";
@@ -11,7 +12,7 @@ import { StatusFlow } from "@/components/landing/status-flow";
 import { Surfaces } from "@/components/landing/surfaces";
 import { Testimonials } from "@/components/landing/testimonials";
 
-export const metadata = {
+export const metadata: Metadata = {
 	title: "Shiplist — Feedback board, public roadmap, changelog",
 	description:
 		"One workspace for your feedback board, public roadmap, and changelog. Votes and status are the backbone. Flat-rate per workspace, never per user.",

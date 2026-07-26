@@ -36,8 +36,6 @@
 	--color-border-strong: var(--border-strong);
 	--color-input: var(--input);
 	--color-ring: var(--ring);
-	--color-panel: var(--panel);
-	--color-panel-raised: var(--panel-raised);
 	--color-status-review: var(--status-review);
 	--color-status-planned: var(--status-planned);
 	--color-status-progress: var(--status-progress);
@@ -92,19 +90,13 @@
 
 	--shadow-panel:
 		0 1px 0 0 oklch(1 0 0 / 4%) inset, 0 24px 60px -30px oklch(0 0 0 / 85%);
-	--shadow-float:
-		0 1px 0 0 oklch(1 0 0 / 5%) inset, 0 40px 90px -40px oklch(0 0 0 / 90%);
 	/* Linear-style neutral halo: a soft white bloom, no hue */
 	--glow-accent: radial-gradient(closest-side, oklch(1 0 0 / 11%), transparent);
 
-	/* Legacy tokens for auth/product pages */
+	/* Brand accent tokens */
 	--brand: #5e6ad2;
 	--brand-soft: rgba(94, 106, 210, 0.14);
 	--brand-strong: #7177e0;
-	--st-planned: oklch(0.68 0.062 250);
-	--st-progress: oklch(0.755 0.075 85);
-	--st-shipped: oklch(0.7 0.062 158);
-	--st-review: oklch(0.66 0.072 18);
 }
 
 @layer base {
@@ -157,9 +149,75 @@
 	.tracking-tightest {
 		letter-spacing: -0.034em;
 	}
-	.text-accent {
-		color: var(--brand-strong);
+
+	/* Typography scale — extends Tailwind defaults */
+	.text-2xs {
+		font-size: 0.6875rem;
+		line-height: 1.4;
 	}
+	.text-sm-13 {
+		font-size: 0.8125rem;
+		line-height: 1.5;
+	}
+	.text-base-15 {
+		font-size: 0.9375rem;
+		line-height: 1.5;
+	}
+
+	/* Tracking */
+	.tracking-label {
+		letter-spacing: 0.16em;
+	}
+	.tracking-kicker {
+		letter-spacing: 0.08em;
+	}
+	.tracking-snug {
+		letter-spacing: -0.02em;
+	}
+	.tracking-tightest {
+		letter-spacing: -0.035em;
+	}
+
+	/* Leading */
+	.leading-headline {
+		line-height: 1.03;
+	}
+
+	/* Section patterns */
+	.section-kicker {
+		font-family: var(--font-code), ui-monospace, monospace;
+		font-size: 0.6875rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: oklch(0.678 0.004 285 / 60%);
+	}
+	.section-heading {
+		font-size: 1.75rem;
+		font-weight: 600;
+		letter-spacing: -0.035em;
+		line-height: 1.03;
+	}
+	@media (min-width: 640px) {
+		.section-heading {
+			font-size: 2rem;
+		}
+	}
+
+	/* Card hover */
+	.card-hover {
+		transition:
+			border-color 200ms,
+			box-shadow 200ms;
+	}
+	.card-hover:hover {
+		border-color: oklch(1 0 0 / 14%);
+		box-shadow:
+			0 12px 4px -4px #0000,
+			0 8px 4px -4px #00000005,
+			0 4px 4px -4px #0000000a,
+			0 0 4px -4px #00000011;
+	}
+
 	.bg-accent {
 		background-color: var(--brand);
 	}
@@ -169,50 +227,11 @@
 	.text-muted-2 {
 		color: oklch(0.678 0.004 285 / 60%);
 	}
-	.bg-surface {
-		background-color: var(--card);
-	}
-	.bg-surface-2 {
-		background-color: var(--secondary);
-	}
 	.border-line {
 		border-color: var(--border);
 	}
 	.border-line-strong {
 		border-color: var(--border-strong);
-	}
-
-	.panel-glow {
-		box-shadow:
-			0 1px 0 0 rgba(255, 255, 255, 0.03) inset,
-			0 1px 2px 0 rgba(0, 0, 0, 0.4),
-			0 0 40px -8px rgba(94, 106, 210, 0.22),
-			0 16px 40px -18px rgba(0, 0, 0, 0.75);
-	}
-	.panel-featured {
-		border-color: rgba(94, 106, 210, 0.35);
-		box-shadow:
-			0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
-			0 0 28px -10px rgba(94, 106, 210, 0.28),
-			0 12px 36px -16px rgba(0, 0, 0, 0.7);
-	}
-
-	.icon-chip {
-		display: inline-grid;
-		place-items: center;
-		width: 30px;
-		height: 30px;
-		border-radius: 9px;
-		background: linear-gradient(
-			180deg,
-			rgba(255, 255, 255, 0.06),
-			rgba(255, 255, 255, 0.015)
-		);
-		border: 1px solid var(--border);
-		box-shadow:
-			0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
-			0 2px 6px -2px rgba(0, 0, 0, 0.5);
-		color: var(--foreground);
 	}
 
 	.grid-paper {
@@ -233,21 +252,6 @@
 		);
 	}
 
-	.hero-glow {
-		background: radial-gradient(
-			ellipse 70% 80% at 75% 30%,
-			rgba(94, 106, 210, 0.18),
-			transparent 65%
-		);
-	}
-	.section-wash {
-		background: radial-gradient(
-			ellipse 90% 50% at 50% 0%,
-			rgba(94, 106, 210, 0.05),
-			transparent 60%
-		);
-	}
-
 	.focus-ring {
 		outline: 2px solid transparent;
 		outline-offset: 2px;
@@ -256,16 +260,6 @@
 		outline: 2px solid var(--brand-strong);
 		outline-offset: 2px;
 	}
-}
-
-@keyframes flowDash {
-	to {
-		stroke-dashoffset: -16;
-	}
-}
-.animate-flow {
-	stroke-dasharray: 4 4;
-	animation: flowDash 1.1s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

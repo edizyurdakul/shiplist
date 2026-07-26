@@ -4,7 +4,7 @@ export function ClosingCta() {
 	return (
 		<section className="border-t border-border py-28">
 			<div className="mx-auto max-w-6xl px-6">
-				<div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-card/60 px-8 py-20 text-center shadow-panel">
+				<div className="relative overflow-hidden rounded-2xl border border-white/8 bg-card/60 px-8 py-20 text-center shadow-panel">
 					<div
 						aria-hidden
 						className="pointer-events-none absolute inset-0"

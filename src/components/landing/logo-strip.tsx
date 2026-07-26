@@ -9,14 +9,14 @@ export function LogoStrip() {
 					"linear-gradient(90deg, transparent, oklch(1 0 0 / 12%) 20%, oklch(1 0 0 / 12%) 80%, transparent) 1",
 			}}
 		>
-			<p className="text-center text-[0.6875rem] font-medium tracking-[0.16em] uppercase text-subtle">
+			<p className="text-center text-2xs font-medium tracking-label uppercase text-subtle">
 				Trusted by teams that ship weekly
 			</p>
 			<div className="mt-7 flex items-center justify-center gap-10">
 				{TEAMS.map((team) => (
 					<span
 						key={team}
-						className="text-[0.9375rem] font-medium tracking-[-0.02em] text-muted-foreground"
+						className="text-base-15 font-medium tracking-snug text-muted-foreground"
 					>
 						{team}
 					</span>

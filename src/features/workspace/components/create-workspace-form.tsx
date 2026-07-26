@@ -103,8 +103,8 @@ export function CreateWorkspaceForm() {
 
 	return (
 		<main className="shell py-20 md:py-28">
-			<div className="mx-auto max-w-[30rem]">
-				<p className="text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+			<div className="mx-auto max-w-120">
+				<p className="text-2xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
 					Step {step} of 2
 				</p>
 				<h1 className="mt-3 text-[2rem] font-semibold tracking-[-0.035em] md:text-[2.4rem]">
@@ -190,7 +190,7 @@ function StepVisibility({
 			<h2 className="text-[1.0625rem] font-medium tracking-[-0.02em]">
 				Who can see this board?
 			</h2>
-			<p className="mt-2 text-[0.8125rem] leading-relaxed text-muted-foreground">
+			<p className="mt-2 text-sm-13 leading-relaxed text-muted-foreground">
 				You can change this anytime in workspace settings. Public boards can
 				still have a private roadmap or changelog.
 			</p>
@@ -230,7 +230,7 @@ function StepVisibility({
 											</span>
 										)}
 									</div>
-									<p className="mt-1 text-[0.8125rem] leading-relaxed text-muted-foreground">
+									<p className="mt-1 text-sm-13 leading-relaxed text-muted-foreground">
 										{o.desc}
 									</p>
 									<ul className="mt-2.5 space-y-1">
@@ -315,10 +315,7 @@ function StepName({
 				<ArrowLeft className="h-3.5 w-3.5" /> Back
 			</button>
 
-			<label
-				htmlFor="workspace-name"
-				className="block text-[0.8125rem] font-medium"
-			>
+			<label htmlFor="workspace-name" className="block text-sm-13 font-medium">
 				Workspace name
 			</label>
 			<input
@@ -333,7 +330,7 @@ function StepName({
 			<div className="mt-6 flex items-baseline justify-between gap-3">
 				<label
 					htmlFor="workspace-slug"
-					className="block text-[0.8125rem] font-medium"
+					className="block text-sm-13 font-medium"
 				>
 					Slug
 				</label>
@@ -354,7 +351,7 @@ function StepName({
 				placeholder="shiplist-design"
 				autoComplete="off"
 				spellCheck={false}
-				className="mt-2 w-full rounded-lg border border-input bg-transparent px-3.5 py-2.5 font-mono text-[0.8125rem] text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-foreground/35"
+				className="mt-2 w-full rounded-lg border border-input bg-transparent px-3.5 py-2.5 font-mono text-sm-13 text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-foreground/35"
 			/>
 
 			<p className="mt-2.5 font-mono text-[0.75rem] text-muted-foreground">

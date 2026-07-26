@@ -29,7 +29,7 @@ export function Developers() {
 		<section id="developers" className="border-t border-border py-20 md:py-28">
 			<div className="w-full max-w-[72rem] mx-auto px-6 grid gap-12 lg:grid-cols-2 lg:gap-16">
 				<div>
-					<p className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase text-subtle">
+					<p className="font-mono text-2xs tracking-[0.08em] uppercase text-subtle">
 						3.0 Developers
 					</p>
 					<h2 className="mt-5 text-[1.75rem] sm:text-[2rem] font-semibold tracking-[-0.035em] leading-[1.03]">
@@ -60,14 +60,14 @@ export function Developers() {
 				<div>
 					<Card className="overflow-hidden">
 						<div className="flex items-center justify-between border-b border-border px-5 py-3">
-							<p className="font-mono text-[0.6875rem] text-subtle">
+							<p className="font-mono text-2xs text-subtle">
 								POST /v1/posts/P-211/vote
 							</p>
 							<span className="font-mono text-[0.625rem] text-subtle">
 								copy
 							</span>
 						</div>
-						<pre className="overflow-x-auto px-5 py-5 font-mono text-[0.6875rem] leading-relaxed text-muted-foreground">
+						<pre className="overflow-x-auto px-5 py-5 font-mono text-2xs leading-relaxed text-muted-foreground">
 							<code>{`curl https://api.shiplist.dev/v1/posts/P-211/vote \\
   -H "Authorization: Bearer $SHIPLIST_KEY" \\
   -X POST

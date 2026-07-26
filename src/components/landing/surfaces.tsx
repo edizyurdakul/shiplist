@@ -64,7 +64,7 @@ export function Surfaces() {
 	return (
 		<section id="product" className="border-t border-border py-20 md:py-28">
 			<div className="w-full max-w-[72rem] mx-auto px-6">
-				<p className="font-mono text-[0.6875rem] tracking-[0.08em] uppercase text-subtle">
+				<p className="font-mono text-2xs tracking-[0.08em] uppercase text-subtle">
 					2.0 Surfaces
 				</p>
 				<h2 className="mt-3 font-semibold tracking-[-0.035em] leading-[1.03] max-w-2xl text-[1.75rem] sm:text-[2.25rem]">
@@ -75,18 +75,18 @@ export function Surfaces() {
 				<div className="mt-12 grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
 					<div className="grid gap-5">
 						<Card className="p-6 transition-[border-color,box-shadow] duration-200 hover:border-[oklch(1_0_0_/_14%)] hover:shadow-[0px_12px_4px_-4px_#0000,0px_8px_4px_-4px_#00000005,0px_4px_4px_-4px_#0000000a,0px_0px_4px_-4px_#00000011]">
-							<p className="text-[0.6875rem] font-medium tracking-[0.16em] uppercase text-subtle">
+							<p className="text-2xs font-medium tracking-[0.16em] uppercase text-subtle">
 								Feedback board
 							</p>
 							<h3 className="mt-4 text-[1.0625rem] font-medium tracking-[-0.02em]">
 								Voting, threads, and status — on every post.
 							</h3>
-							<p className="mt-2.5 text-[0.8125rem] leading-relaxed text-muted-foreground">
+							<p className="mt-2.5 text-sm-13 leading-relaxed text-muted-foreground">
 								Sort by top votes, filter by tag, search the full text. Threaded
 								comments collapse so a 40-comment thread doesn't bury the post.
 							</p>
 							<div className="mt-6 p-3 bg-[oklch(0.205_0_0_/_70%)] border border-[var(--border)] rounded-[var(--radius-md)]">
-								<div className="flex items-center justify-between pb-2 text-[0.6875rem] text-subtle">
+								<div className="flex items-center justify-between pb-2 text-2xs text-subtle">
 									<span>shiplist/web</span>
 									<span>⌕ dark mode</span>
 								</div>
@@ -96,11 +96,11 @@ export function Surfaces() {
 											key={row.title}
 											className="flex items-center gap-3 rounded-md px-1.5 py-2 hover:bg-[oklch(1_0_0_/_3%)]"
 										>
-											<span className="w-6 flex-none text-center font-mono text-[0.6875rem] text-subtle">
+											<span className="w-6 flex-none text-center font-mono text-2xs text-subtle">
 												{row.votes}
 											</span>
 											<div className="min-w-0 flex-1">
-												<p className="truncate text-[0.75rem]">{row.title}</p>
+												<p className="truncate text-xs">{row.title}</p>
 												<div className="mt-1 flex items-center gap-2.5">
 													<StatusLabel status={row.status} />
 													<span className="text-[0.625rem] text-subtle">
@@ -115,14 +115,14 @@ export function Surfaces() {
 						</Card>
 
 						<Card className="p-6 transition-[border-color,box-shadow] duration-200 hover:border-[oklch(1_0_0_/_14%)] hover:shadow-[0px_12px_4px_-4px_#0000,0px_8px_4px_-4px_#00000005,0px_4px_4px_-4px_#0000000a,0px_0px_4px_-4px_#00000011]">
-							<p className="text-[0.6875rem] font-medium tracking-[0.16em] uppercase text-subtle">
+							<p className="text-2xs font-medium tracking-[0.16em] uppercase text-subtle">
 								Changelog
 							</p>
 							<h3 className="mt-4 text-[1.0625rem] font-medium tracking-[-0.02em]">
 								Versioned, categorized, linked back to the post that asked for
 								it.
 							</h3>
-							<p className="mt-2.5 text-[0.8125rem] leading-relaxed text-muted-foreground">
+							<p className="mt-2.5 text-sm-13 leading-relaxed text-muted-foreground">
 								New, improved, fixed. Each entry carries a version and a link to
 								the source feedback post, so readers see the line from request
 								to ship.
@@ -134,7 +134,7 @@ export function Surfaces() {
 										className="flex items-start gap-3 p-3 bg-[oklch(0.205_0_0_/_70%)] border border-[var(--border)] rounded-[var(--radius-md)]"
 									>
 										<span
-											className="w-20 flex-none pt-0.5 text-[0.6875rem] font-medium tracking-[0.16em] uppercase"
+											className="w-20 flex-none pt-0.5 text-2xs font-medium tracking-[0.16em] uppercase"
 											style={{
 												color:
 													entry.tag === "New"
@@ -147,7 +147,7 @@ export function Surfaces() {
 											{entry.tag}
 										</span>
 										<div className="min-w-0">
-											<p className="text-[0.75rem]">{entry.title}</p>
+											<p className="text-xs">{entry.title}</p>
 											<p className="mt-1 font-mono text-[0.625rem] text-subtle">
 												{entry.version} · {entry.date} · {entry.ticket}
 											</p>
@@ -159,13 +159,13 @@ export function Surfaces() {
 					</div>
 
 					<Card className="flex h-full flex-col p-6 transition-[border-color,box-shadow] duration-200 hover:border-[oklch(1_0_0_/_14%)] hover:shadow-[0px_12px_4px_-4px_#0000,0px_8px_4px_-4px_#00000005,0px_4px_4px_-4px_#0000000a,0px_0px_4px_-4px_#00000011]">
-						<p className="text-[0.6875rem] font-medium tracking-[0.16em] uppercase text-subtle">
+						<p className="text-2xs font-medium tracking-[0.16em] uppercase text-subtle">
 							Public roadmap
 						</p>
 						<h3 className="mt-4 text-[1.0625rem] font-medium tracking-[-0.02em]">
 							A kanban that's public when you want it, private when you don't.
 						</h3>
-						<p className="mt-2.5 text-[0.8125rem] leading-relaxed text-muted-foreground">
+						<p className="mt-2.5 text-sm-13 leading-relaxed text-muted-foreground">
 							Drag a post between columns and its status updates everywhere —
 							the board, the changelog link, the API. Flip visibility per board.
 						</p>
@@ -177,7 +177,7 @@ export function Surfaces() {
 										{col.cards.map((card) => (
 											<div
 												key={card}
-												className="px-3 py-2.5 text-[0.75rem] bg-[oklch(0.205_0_0_/_70%)] border border-[var(--border)] rounded-[var(--radius-md)]"
+												className="px-3 py-2.5 text-xs bg-[oklch(0.205_0_0_/_70%)] border border-[var(--border)] rounded-[var(--radius-md)]"
 											>
 												{card}
 											</div>

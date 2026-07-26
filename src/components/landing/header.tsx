@@ -23,7 +23,7 @@ export async function Header() {
 
 	return (
 		<header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
-			<div className="w-full max-w-[72rem] mx-auto px-6 flex h-13 items-center justify-between">
+			<div className="w-full max-w-6xl mx-auto px-6 flex h-13 items-center justify-between">
 				<Link href="/" className="flex items-center gap-2">
 					<span
 						className="flex size-5 items-center justify-center rounded-[0.35rem] bg-primary"
@@ -43,7 +43,7 @@ export async function Header() {
 							/>
 						</svg>
 					</span>
-					<span className="text-[0.9375rem] font-semibold tracking-[-0.02em]">
+					<span className="text-base-15 font-semibold tracking-snug">
 						Shiplist
 					</span>
 				</Link>
@@ -53,7 +53,7 @@ export async function Header() {
 						<a
 							key={link.label}
 							href={link.href}
-							className="text-[0.8125rem] text-muted-foreground transition-colors hover:text-foreground"
+							className="text-sm-13 text-muted-foreground transition-colors hover:text-foreground"
 						>
 							{link.label}
 						</a>
