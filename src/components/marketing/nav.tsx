@@ -1,23 +1,10 @@
+"use client";
+
 import { ArrowUp } from "lucide-react";
-import { cookies, headers } from "next/headers";
 import Link from "next/link";
 import { SignOut } from "@/features/auth/actions";
-import { getActiveOrganizationSlug } from "@/features/workspace/helpers";
-import { auth } from "@/lib/auth";
 
-export async function SiteHeader() {
-	let session = null;
-	try {
-		session = await auth.api.getSession({
-			headers: await headers(),
-		});
-	} catch {
-		const cookieStore = await cookies();
-		cookieStore.delete("better-auth.session_token");
-	}
-
-	const slug = await getActiveOrganizationSlug(session);
-
+export function Nav({ isLoggedIn }: { isLoggedIn: boolean }) {
 	return (
 		<header className="sticky top-0 z-40 border-b border-line bg-[var(--base)]/80 backdrop-blur-md">
 			<div className="mx-auto flex h-13 max-w-[1180px] items-center justify-between px-5 py-3">
@@ -33,33 +20,33 @@ export async function SiteHeader() {
 					</span>
 				</Link>
 				<nav className="hidden items-center gap-6 text-[13px] text-muted md:flex">
-					<Link
-						href="/#product"
+					<a
+						href="#product"
 						className="focus-ring rounded transition-colors hover:text-[var(--ink)]"
 					>
 						Product
-					</Link>
-					<Link
-						href="/#developers"
+					</a>
+					<a
+						href="#developers"
 						className="focus-ring rounded transition-colors hover:text-[var(--ink)]"
 					>
 						Developers
-					</Link>
-					<Link
-						href="/#pricing"
+					</a>
+					<a
+						href="#pricing"
 						className="focus-ring rounded transition-colors hover:text-[var(--ink)]"
 					>
 						Pricing
-					</Link>
-					<Link
-						href="/#changelog"
+					</a>
+					<a
+						href="#changelog"
 						className="focus-ring rounded transition-colors hover:text-[var(--ink)]"
 					>
 						Changelog
-					</Link>
+					</a>
 				</nav>
 				<div className="flex items-center gap-1.5">
-					{session ? (
+					{isLoggedIn ? (
 						<>
 							<form action={SignOut}>
 								<button
@@ -70,8 +57,8 @@ export async function SiteHeader() {
 								</button>
 							</form>
 							<Link
-								href={slug ? `/w/${slug}` : "/create-workspace"}
-								className="btn-primary focus-ring inline-flex items-center gap-1.5 px-3.5 py-1.5 text-[13px] font-medium"
+								href="/create-workspace"
+								className="btn-primary focus-ring inline-flex items-center gap-1.5  text-[13px] font-medium"
 							>
 								Open App
 							</Link>
@@ -88,7 +75,7 @@ export async function SiteHeader() {
 								href="/sign-up"
 								className="btn-primary focus-ring inline-flex items-center gap-1.5 px-3.5 py-1.5 text-[13px] font-medium"
 							>
-								Open a board
+								Sign up
 							</Link>
 						</>
 					)}
